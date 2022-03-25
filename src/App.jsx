@@ -14,7 +14,6 @@ import * as businessService from './services/businessService'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [businesses, setBusinesses]= useState([])
-  const [businesses, setBusinesses] = useState([])
   const navigate = useNavigate()
 
   useEffect(()=> {
