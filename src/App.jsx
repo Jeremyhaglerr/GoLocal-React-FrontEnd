@@ -46,6 +46,20 @@ const App = () => {
     navigate('/')
   }
 
+  const handleDeleteBusiness = id => {
+    businessService.deleteOne(id)
+    .then(deletedBusiness => setBusinesses(businesses.filter(business => business._id !== deletedBusiness._id)))
+  }
+
+  const handleUpdateBusiness = updatedBusinessData => {
+    businessService.update(updatedBusinessData)
+    .then(updatedBusiness => {
+      const newBusinessesArray = businesses.map(business => business._id === updatedBusiness._id ? updatedBusiness : business)
+      setBusinesses(newBusinessesArray)
+      navigate('/')
+    })
+  }
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -71,6 +85,27 @@ const App = () => {
         <Route
           path="/create"
           element={user ? <CreateBusiness  handleAddBusiness={handleAddBusiness}  /> : <Navigate to="/login" />}
+          />
+          <Route
+            path='/'
+            element={
+              user ?
+              <Landing
+                handleDeleteBusiness={handleDeleteBusiness}
+                businesses={businesses}
+                user={user} 
+              />
+              :
+              <Navigate to='/login' />
+            }
+          />
+          <Route 
+            path='/edit'
+            element={
+              <EditBusiness
+                handleUpdateBusiness={handleUpdateBusiness}
+              />
+            }
           />
       </Routes>
     </>
