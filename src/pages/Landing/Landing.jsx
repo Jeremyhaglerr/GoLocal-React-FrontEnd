@@ -1,9 +1,22 @@
+import BusinessCard from '../../components/BusinessCard/BusinessCard'
 import styles from './Landing.module.css'
 
-const Landing = ({ user }) => {
+
+
+const Landing = (props) => {
   return (
     <main className={styles.container}>
-      <h1>hello, {user ? user.name : 'friend'}</h1>
+      <h1>hello, {props.user ? props.user.name : 'friend'}</h1>
+      <h2> {props.businesses.map (business => (
+        <BusinessCard
+         key={business._id}
+         business={business}
+         user={props.user}
+          />
+        
+      ))}
+
+      </h2>
     </main>
   )
 }
