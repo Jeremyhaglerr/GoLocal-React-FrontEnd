@@ -1,8 +1,6 @@
 import BusinessCard from '../../components/BusinessCard/BusinessCard'
 import styles from './Landing.module.css'
 
-
-
 const Landing = (props) => {
   return (
     <main className={styles.container}>
