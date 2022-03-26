@@ -52,19 +52,12 @@ const App = () => {
     .then(updatedBusiness => {
       const newBusinessArray = businesses.map(business => business._id === updatedBusiness._id ? updatedBusiness : business)
       setBusinesses(newBusinessArray)
+    })
+  }
 
   const handleDeleteBusiness = id => {
     businessService.deleteOne(id)
     .then(deletedBusiness => setBusinesses(businesses.filter(business => business._id !== deletedBusiness._id)))
-  }
-
-  const handleUpdateBusiness = updatedBusinessData => {
-    businessService.update(updatedBusinessData)
-    .then(updatedBusiness => {
-      const newBusinessesArray = businesses.map(business => business._id === updatedBusiness._id ? updatedBusiness : business)
-      setBusinesses(newBusinessesArray)
-      navigate('/')
-    })
   }
 
   return (
@@ -95,7 +88,7 @@ const App = () => {
           <Route 
           path="/edit"
           element={
-            user ? <EditBusiness business={business} handleEditBusiness={handleEditBusiness}  /> : <Navigate to="/login" />}
+            user ? <EditBusiness  handleEditBusiness={handleEditBusiness}  /> : <Navigate to="/login" />}
           />
   
           <Route
