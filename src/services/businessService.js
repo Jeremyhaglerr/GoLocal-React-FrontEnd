@@ -22,6 +22,16 @@ function getAll() {
   })
   .then(res => res.json())
 }
+
+function deleteOne(id) {
+  return fetch(`${BASE_URL}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+  })
+  .then(res => res.json())
+}
   
 function update(business) {
   return fetch(`${BASE_URL}/${business.get('_id')}`, {
@@ -39,5 +49,6 @@ function update(business) {
   export {
     create,
     getAll,
+    deleteOne,
     update
   }
