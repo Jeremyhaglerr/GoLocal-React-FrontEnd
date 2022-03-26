@@ -10,6 +10,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import CreateBusiness from './pages/CreateBusiness/CreateBusiness'
 import * as businessService from './services/businessService'
+import EditBusiness from './pages/EditBusiness/EditBusiness.jsx/EditBusiness'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -46,6 +47,12 @@ const App = () => {
     navigate('/')
   }
 
+  const handleEditBusiness = updatedBusinessData => {
+    businessService.update(updatedBusinessData)
+    .then(updatedBusiness => {
+      const newBusinessArray = businesses.map(business => business._id === updatedBusiness._id ? updatedBusiness : business)
+      setBusinesses(newBusinessArray)
+
   const handleDeleteBusiness = id => {
     businessService.deleteOne(id)
     .then(deletedBusiness => setBusinesses(businesses.filter(business => business._id !== deletedBusiness._id)))
@@ -64,8 +71,6 @@ const App = () => {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} businesses={businesses} />} />
-      
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -86,26 +91,17 @@ const App = () => {
           path="/create"
           element={user ? <CreateBusiness  handleAddBusiness={handleAddBusiness}  /> : <Navigate to="/login" />}
           />
+
+          <Route 
+          path="/edit"
+          element={
+            user ? <EditBusiness business={business} handleEditBusiness={handleEditBusiness}  /> : <Navigate to="/login" />}
+          />
+  
           <Route
             path='/'
             element={
-              user ?
-              <Landing
-                handleDeleteBusiness={handleDeleteBusiness}
-                businesses={businesses}
-                user={user} 
-              />
-              :
-              <Navigate to='/login' />
-            }
-          />
-          <Route 
-            path='/edit'
-            element={
-              <EditBusiness
-                handleUpdateBusiness={handleUpdateBusiness}
-              />
-            }
+              user ? <Landing handleDeleteBusiness={handleDeleteBusiness} businesses={businesses} user={user} /> : <Navigate to='/login' />}
           />
       </Routes>
     </>
