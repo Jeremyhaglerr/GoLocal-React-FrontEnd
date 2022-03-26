@@ -43,6 +43,7 @@ function update(business) {
   })
   .then(res => res.json())
 }
+
   
   
   export {
