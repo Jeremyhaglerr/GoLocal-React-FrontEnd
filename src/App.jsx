@@ -10,6 +10,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import CreateBusiness from './pages/CreateBusiness/CreateBusiness'
 import * as businessService from './services/businessService'
+import EditBusiness from './pages/EditBusiness/EditBusiness.jsx/EditBusiness'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -46,6 +47,15 @@ const App = () => {
     navigate('/')
   }
 
+  const handleEditBusiness = updatedBusinessData => {
+    businessService.update(updatedBusinessData)
+    .then(updatedBusiness => {
+      const newBusinessArray = businesses.map(business => business._id === updatedBusiness._id ? updatedBusiness : business)
+      setBusinesses(newBusinessArray)
+      navigate('/')
+    })
+  }
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -71,6 +81,11 @@ const App = () => {
         <Route
           path="/create"
           element={user ? <CreateBusiness  handleAddBusiness={handleAddBusiness}  /> : <Navigate to="/login" />}
+          />
+          <Route 
+          path="/edit"
+          element={
+            user ? <EditBusiness business={businesses[0]} handleEditBusiness={handleEditBusiness}  /> : <Navigate to="/login" />}
           />
       </Routes>
     </>

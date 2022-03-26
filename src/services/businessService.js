@@ -23,9 +23,21 @@ function getAll() {
   .then(res => res.json())
 }
   
+function update(business) {
+  return fetch(`${BASE_URL}/${business.get('_id')}`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: business
+  })
+  .then(res => res.json())
+}
+
   
   
   export {
     create,
     getAll,
+    update
   }
