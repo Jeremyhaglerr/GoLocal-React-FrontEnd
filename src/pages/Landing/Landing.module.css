@@ -2,4 +2,39 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: #ffffff;
+}
+
+.businessContainer {
+  width: 75%;
+  display: grid;
+  grid-template-rows: repeat(minmax(170px, 1fr));
+	grid-template-columns: auto auto auto;
+  grid-gap: 30px;
+  background-color: #ffffff;
+}
+
+.businessCont {
+  background-color: #fafafa;
+  border: 1mm ridge;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  padding: 8px;
+}
+
+.hello {
+
+  background-color: #ffffff;
+  border: 1mm ridge;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  padding: 10px; 
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+body {
+  background-color: rgb(227, 250, 255);
 }
