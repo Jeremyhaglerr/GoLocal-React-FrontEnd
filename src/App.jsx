@@ -12,6 +12,7 @@ import CreateBusiness from './pages/CreateBusiness/CreateBusiness'
 import * as businessService from './services/businessService'
 import EditBusiness from './pages/EditBusiness/EditBusiness'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
+import BusinessDetails from './pages/BusinessDetails/BusinessDetails'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -97,6 +98,11 @@ const App = () => {
             element={
               user ? <Landing handleDeleteBusiness={handleDeleteBusiness} businesses={businesses} user={user} /> : <Navigate to='/login' />}
           />
+          <Route
+            path='/business-details'
+            element={<BusinessDetails/>} />
+              
+          
 
           <Route 
             path='/profiles'
