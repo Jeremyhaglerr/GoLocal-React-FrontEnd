@@ -24,7 +24,7 @@ const ChangePasswordForm = props => {
     try {
       await authService.changePassword(formData)
       props.handleSignupOrLogin()
-      navigate('/')
+      navigate('/profiles')
     } catch (err) {
       props.updateMessage(err.message)
     }
@@ -83,7 +83,7 @@ const ChangePasswordForm = props => {
         <button disabled={isFormInvalid()} className={styles.button}>
           Change Password
         </button>
-        <Link to="/">
+        <Link to="/profiles">
           <button>Cancel</button>
         </Link>
       </div>
