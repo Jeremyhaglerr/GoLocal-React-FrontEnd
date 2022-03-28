@@ -16,5 +16,16 @@ function getProfile(id) {
   .then(res => res.json())
 }
 
+function createList(id, list) {
+  return fetch(`${BASE_URL}/${id}`, { 
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: list
+  })
+  .then(res => res.json())
+}
 
-export { getAllProfiles,getProfile }
+
+export { getAllProfiles,getProfile, createList }

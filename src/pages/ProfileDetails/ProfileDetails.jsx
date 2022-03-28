@@ -2,26 +2,30 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
 import BusinessCard from '../../components/BusinessCard/BusinessCard';
+import ListCard from '../../components/ListCard/ListCard';
 
 const ProfileDetails = (props) => { 
-  const [profile, setProfile] = useState([])
-
-  useEffect(()=> {
-    profileService.getProfile(props.user.profile)
-    .then(profile => setProfile(profile))
-  }, [])
-console.log(profile);
-  const ownedBusinesses = props.businesses.filter(business => business.owner._id === profile._id)
-console.log(ownedBusinesses);
-  useEffect(()=>{
-    
-  })
+  const ownedBusinesses = props.businesses.filter(business => business.owner._id === props.profile._id)
+console.log(props.profile);
   
   return (
     <>
-    <h1>Hello, {profile.name}</h1>
-    <h4>{profile.city}</h4>
+    {props.profile ?
+    <>
+    <h1>Hello, {props.profile.name}</h1>
+    <h4>{props.profile.city}</h4>
     <Link to='/changePassword'>Change Password</Link>
+    {props.profile.lists ? 
+    <h2> {props.profile.lists.map (list => (
+      <>
+        <ListCard key={list.name} list={list}/ >
+        <br />
+        </>
+      ))}
+      </h2>
+      : <p></p>
+    }
+
     <h2> {ownedBusinesses.map (business => (
         <BusinessCard
           key={business._id}
@@ -32,7 +36,12 @@ console.log(ownedBusinesses);
       ))}
 
       </h2>
-    </> 
+      </> 
+
+    :
+    <h2>loading...</h2>
+}
+</>
     );
 }
 
