@@ -2,3 +2,23 @@ span {
   color: red;
   font-size: 1.2rem ;
 }
+
+form, h1 {
+  text-align: center;
+  background-color: white;
+  width: 30%;
+  margin: auto;
+  padding: 20px 0 20px 0;
+  border: 0.5mm inset;
+  border-radius: 5%;
+}
+
+h1 {
+  text-align: center;
+  background-color: white;
+  width: 20%;
+  margin: auto;
+  margin-bottom: 20px;
+  font-size: 25px;
+
+}
