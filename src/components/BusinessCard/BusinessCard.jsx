@@ -7,12 +7,12 @@ function BusinessCard({business}) {
    <Link key={business._id} state={{business}}  to='/business-details' >
     <div className="card">
       <div className="card-body">
-        <h2 className="card-text">{props.business.name}</h2>
-        <p className="card-text"> 📍 {props.business.address}</p>
-        <p className="card-text"> 🔗 {props.business.url}</p>
-        <p className="card-text"> 📞 {props.business.phoneNum}</p> 
-        <p className="card-text"> 📅 {props.business.hours}</p> 
-        <p className="card-text">Added by {props.business.owner.name}</p> 
+        <h2 className="card-text">{business.name}</h2>
+        <p className="card-text"> 📍 {business.address}</p>
+        <p className="card-text"> 🔗 {business.url}</p>
+        <p className="card-text"> 📞 {business.phoneNum}</p> 
+        <p className="card-text"> 📅 {business.hours}</p> 
+        <p className="card-text">Added by {business.owner.name}</p> 
       </div>
      </div>
     </Link>    
