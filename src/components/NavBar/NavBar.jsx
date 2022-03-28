@@ -18,7 +18,7 @@ const NavBar = ({ user, handleLogout }) => {
                   Dropdown
                 </a>
                 <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                  <li><a href="/profiles" className="dropdown-item">Profiles</a></li>
+                  <li><a href="/profiles" className="dropdown-item">Profile</a></li>
                   <li><a href="/create" className="dropdown-item">Add a Business</a></li>
                   <li><a href="/index" className="dropdown-item">All Businesses</a></li>
                   <li><a href="/wishlist" className="dropdown-item">Your Wishlists</a></li>
