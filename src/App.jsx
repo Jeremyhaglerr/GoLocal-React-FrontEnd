@@ -115,7 +115,7 @@ const App = () => {
           
 
           <Route 
-            path='/profiles'
+            path='/profile'
             element={
               user ? <ProfileDetails businesses={businesses} user={user} profile={profile} /> : <Navigate to='/login' />}
           />

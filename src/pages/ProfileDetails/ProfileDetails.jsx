@@ -14,7 +14,8 @@ console.log(props.profile);
     <>
     <h1>Hello, {props.profile.name}</h1>
     <h4>{props.profile.city}</h4>
-    <Link to='/changePassword'>Change Password</Link>
+    <div className="listcontainer">
+    <h5>Lists:</h5>
     {props.profile.lists ? 
     <h2> {props.profile.lists.map (list => (
       <>
@@ -25,6 +26,7 @@ console.log(props.profile);
       </h2>
       : <p></p>
     }
+    </div>
 
     <h2> {ownedBusinesses.map (business => (
         <BusinessCard
