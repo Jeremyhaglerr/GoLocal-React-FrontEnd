@@ -8,15 +8,20 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
-import CreateBusiness from './pages/CreateBusiness/CreateBusiness'
 import * as businessService from './services/businessService'
+import * as profileService from './services/profileService'
+import CreateBusiness from './pages/CreateBusiness/CreateBusiness'
 import EditBusiness from './pages/EditBusiness/EditBusiness'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
 import BusinessDetails from './pages/BusinessDetails/BusinessDetails'
+import CreateList from './pages/CreateList/CreateList'
+import ListDetails from './pages/ListDetails/ListDetails'
+
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [businesses, setBusinesses]= useState([])
+  const [profile, setProfile] = useState([])
   const navigate = useNavigate()
 
   useEffect(()=> {
@@ -42,6 +47,11 @@ const App = () => {
       .then(allBusinesses => setBusinesses(allBusinesses))
     }
   }, [user])
+
+  useEffect(()=> {
+    profileService.getProfile(user.profile)
+    .then(profile => setProfile(profile))
+  }, [])
 
   const handleAddBusiness = async newBusinessData => {
     const newBusiness = await businessService.create(newBusinessData)
@@ -107,7 +117,17 @@ const App = () => {
           <Route 
             path='/profiles'
             element={
-              user ? <ProfileDetails businesses={businesses} user={user} /> : <Navigate to='/login' />}
+              user ? <ProfileDetails businesses={businesses} user={user} profile={profile} /> : <Navigate to='/login' />}
+          />
+          <Route
+          path='/addList'
+          element={
+            user ? <CreateList businesses={businesses} user={user} /> : <Navigate to='/login' />}
+          />
+          <Route
+          path='/listDetails'
+          element={
+            user ? <ListDetails businesses={businesses} user={user} profile={profile} /> : <Navigate to='/login' />}
           />
       </Routes>
     </>

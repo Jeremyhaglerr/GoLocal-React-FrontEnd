@@ -4,18 +4,17 @@ function BusinessCard({business}) {
   console.log()
     return(
       <>
-    <Link key={business._id} state={{business}}  to='/business-details' >
-      <div className="card">
-    
-        <div className="card-body">
-          <h2 className="card-text">Business Name{business.name}</h2>
-          <p className="card-text">Located at {business.address}</p>
-          <p className="card-text">Website {business.url}</p>
-          <p className="card-text">PhoneNumber {business.phoneNum}</p> 
-          <p className="card-text">Hours {business.hours}</p> 
-          <p className="card-text">Created by: {business.owner.name}</p> 
-        </div>
+   <Link key={business._id} state={{business}}  to='/business-details' >
+    <div className="card">
+      <div className="card-body">
+        <h2 className="card-text">{props.business.name}</h2>
+        <p className="card-text"> 📍 {props.business.address}</p>
+        <p className="card-text"> 🔗 {props.business.url}</p>
+        <p className="card-text"> 📞 {props.business.phoneNum}</p> 
+        <p className="card-text"> 📅 {props.business.hours}</p> 
+        <p className="card-text">Added by {props.business.owner.name}</p> 
       </div>
+     </div>
     </Link>    
 
       {/* {
