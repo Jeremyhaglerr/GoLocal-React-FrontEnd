@@ -1,3 +1,4 @@
+import BusinessDetails from '../pages/BusinessDetails/BusinessDetails'
 import * as tokenService from './tokenService'
 const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/business`
 
@@ -44,11 +45,17 @@ function update(business) {
   .then(res => res.json())
 }
 
-  
+function getBusinessDetails(id) {
+  return fetch(`${BASE_URL}/${id}`, {
+    headers: { Authorization: `Bearer ${tokenService.getToken()}` },
+  })
+  .then(res => res.json())
+}
   
   export {
     create,
     getAll,
     deleteOne,
-    update
+    update,
+    getBusinessDetails
   }
