@@ -5,30 +5,35 @@ const NavBar = ({ user, handleLogout }) => {
   return (
     <>
       {user ?
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/index">Navbar</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
-            <ul className="navbar-nav">
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="/" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                  <li><a href="/profiles" className="dropdown-item">Profile</a></li>
-                  <li><a href="/create" className="dropdown-item">Add a Business</a></li>
-                  <li><a href="/index" className="dropdown-item">All Businesses</a></li>
-                  <li><a href="/wishlist" className="dropdown-item">Your Wishlists</a></li>
-                  <li><a href="" onClick={handleLogout} className="dropdown-item">LOG OUT</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">GoLocal</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/create">Add Business</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile">Profile</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          🛠
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Sign Out</a>
+          <a class="dropdown-item" href="#">Change Password</a>
+          <a class="dropdown-item" href="#"></a>
         </div>
-      </nav>
+      </li>
+    </ul>
+  </div>
+</nav>
       :
         <nav>
           <ul>
