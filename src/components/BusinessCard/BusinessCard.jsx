@@ -6,12 +6,12 @@ function BusinessCard(props) {
     <div className="card">
   
       <div className="card-body">
-        <h2 className="card-text">Business Name{props.business.name}</h2>
-        <p className="card-text">Located at {props.business.address}</p>
-        <p className="card-text">Website {props.business.url}</p>
-        <p className="card-text">PhoneNumber {props.business.phoneNum}</p> 
-        <p className="card-text">Hours {props.business.hours}</p> 
-        <p className="card-text">Created by: {props.business.owner.name}</p> 
+        <h2 className="card-text">{props.business.name}</h2>
+        <p className="card-text"> 📍 {props.business.address}</p>
+        <p className="card-text"> 🔗 {props.business.url}</p>
+        <p className="card-text"> 📞 {props.business.phoneNum}</p> 
+        <p className="card-text"> 📅 {props.business.hours}</p> 
+        <p className="card-text">Added by {props.business.owner.name}</p> 
         
 
       </div>
