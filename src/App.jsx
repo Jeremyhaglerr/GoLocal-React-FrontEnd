@@ -10,7 +10,8 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import CreateBusiness from './pages/CreateBusiness/CreateBusiness'
 import * as businessService from './services/businessService'
-import EditBusiness from './pages/EditBusiness/EditBusiness.jsx/EditBusiness'
+import EditBusiness from './pages/EditBusiness/EditBusiness'
+import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -72,10 +73,10 @@ const App = () => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
-        <Route
+        {/* <Route
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}
-        />
+        /> */}
         <Route
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
@@ -95,6 +96,12 @@ const App = () => {
             path='/'
             element={
               user ? <Landing handleDeleteBusiness={handleDeleteBusiness} businesses={businesses} user={user} /> : <Navigate to='/login' />}
+          />
+
+          <Route 
+            path='/profiles'
+            element={
+              user ? <ProfileDetails businesses={businesses} user={user} /> : <Navigate to='/login' />}
           />
       </Routes>
     </>
