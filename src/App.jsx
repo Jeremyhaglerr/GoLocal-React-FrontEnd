@@ -119,7 +119,8 @@ const App = () => {
 
           <Route
             path='/business-details'
-            element={<BusinessDetails/>} />
+            element={
+              user ? <BusinessDetails handleDeleteBusiness={handleDeleteBusiness} businesses={businesses} user={user} /> : <Navigate to='/login' />} />
 
           <Route 
             path='/profile'
