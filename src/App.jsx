@@ -94,6 +94,13 @@ const App = () => {
       setProfile(updatedProfile)
     })
   }
+  
+  const handleRemoveFromList = (profile, list, updatedList) => {
+    profileService.removeFromList(profile, list, )
+    .then(updatedProfile => {
+      setProfile(updatedProfile)
+    })
+  }
 
   return (
     <>
@@ -164,7 +171,7 @@ const App = () => {
           <Route
           path='/listDetails'
           element={
-            user ? <ListDetails handleAddToList={handleAddToList} businesses={businesses} user={user} profile={profile} /> : <Navigate to='/login' />}
+            user ? <ListDetails handleAddToList={handleAddToList} handleRemoveFromList={handleRemoveFromList} businesses={businesses} user={user} profile={profile} /> : <Navigate to='/login' />}
           />
 
       </Routes>
