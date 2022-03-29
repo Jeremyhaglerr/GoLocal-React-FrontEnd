@@ -72,6 +72,13 @@ const App = () => {
     .then(deletedBusiness => setBusinesses(businesses.filter(business => business._id !== deletedBusiness._id)))
   }
 
+  const handleAddToList = (profile, list, updatedList) => {
+    profileService.addToList(profile, list, updatedList)
+    .then(updatedProfile => {
+      setProfile(updatedProfile)
+    })
+  }
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -127,7 +134,7 @@ const App = () => {
           <Route
           path='/listDetails'
           element={
-            user ? <ListDetails businesses={businesses} user={user} profile={profile} /> : <Navigate to='/login' />}
+            user ? <ListDetails handleAddToList={handleAddToList} businesses={businesses} user={user} profile={profile} /> : <Navigate to='/login' />}
           />
       </Routes>
     </>
