@@ -49,7 +49,7 @@ const App = () => {
   }, [user])
 
   useEffect(()=> {
-    profileService.getProfile(user.profile)
+    profileService.getProfile(user?.profile)
     .then(profile => setProfile(profile))
   }, [])
 
