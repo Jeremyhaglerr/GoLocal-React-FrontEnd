@@ -99,6 +99,7 @@ const App = () => {
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
         />
+        
         <Route
           path="/create"
           element={user ? <CreateBusiness  handleAddBusiness={handleAddBusiness}  /> : <Navigate to="/login" />}
@@ -115,27 +116,29 @@ const App = () => {
             element={
               user ? <Landing handleDeleteBusiness={handleDeleteBusiness} businesses={businesses} user={user} /> : <Navigate to='/login' />}
           />
+
           <Route
             path='/business-details'
             element={<BusinessDetails/>} />
-              
-          
 
           <Route 
             path='/profile'
             element={
               user ? <ProfileDetails businesses={businesses} user={user} profile={profile} /> : <Navigate to='/login' />}
           />
+
           <Route
           path='/addList'
           element={
             user ? <CreateList businesses={businesses} user={user} /> : <Navigate to='/login' />}
           />
+
           <Route
           path='/listDetails'
           element={
             user ? <ListDetails handleAddToList={handleAddToList} businesses={businesses} user={user} profile={profile} /> : <Navigate to='/login' />}
           />
+
       </Routes>
     </>
   )
