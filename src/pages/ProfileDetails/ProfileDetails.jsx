@@ -26,6 +26,7 @@ console.log(props.profile);
       </h2>
       : <p></p>
     }
+    <Link to='/addList'>Add a list</Link>
     </div>
 
     <h2> {ownedBusinesses.map (business => (
