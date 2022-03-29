@@ -51,11 +51,35 @@ function getBusinessDetails(id) {
   })
   .then(res => res.json())
 }
+
+function createReview(review, business) {
+  console.log(review)
+  return fetch(`${BASE_URL}/${business}/reviews`, { 
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: review
+  })
+  .then(res => res.json())
+}
+
+function deleteReview(id) {
+  return fetch(`${BASE_URL}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+  })
+  .then(res => res.json())
+}
   
   export {
     create,
     getAll,
     deleteOne,
     update,
-    getBusinessDetails
+    getBusinessDetails,
+    deleteReview,
+    createReview
   }

@@ -21,6 +21,7 @@ import ListDetails from './pages/ListDetails/ListDetails'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [businesses, setBusinesses]= useState([])
+  const [reviews, setReviews]= useState([])
   const [profile, setProfile] = useState([])
   const navigate = useNavigate()
 
@@ -56,6 +57,18 @@ const App = () => {
   const handleAddBusiness = async newBusinessData => {
     const newBusiness = await businessService.create(newBusinessData)
     setBusinesses([...businesses, newBusiness])
+    navigate('/')
+  }
+
+  const handleAddReview = async (newReviewData, business) => {
+    const newReview = await businessService.createReview(newReviewData, business)
+    setReviews([...reviews, newReview])
+    navigate('/')
+  }
+
+  const handleDeleteReview = id => {
+    businessService.deleteReview(id)
+    .then(deletedReview => setReviews(reviews.filter(review => review._id !== deletedReview._id)))
     navigate('/')
   }
 
@@ -123,7 +136,18 @@ const App = () => {
           <Route
             path='/business-details'
             element={
-              user ? <BusinessDetails handleDeleteBusiness={handleDeleteBusiness} businesses={businesses} user={user} /> : <Navigate to='/login' />} />
+              user ? <BusinessDetails  handleAddReview={handleAddReview} handleDeleteBusiness={handleDeleteBusiness} businesses={businesses} user={user} /> : <Navigate to='/login' />} />
+
+          {/* <Route
+          path="/business-details"
+          element={user ? <BusinessDetails  handleAddReview={handleAddReview}  /> : <Navigate to="/login" />}
+          /> */}
+
+          {/* <Route
+          path='/business-details'
+          element={
+            user ? <BusinessDetails handleDeleteReview={handleDeleteReview} reviews={reviews} user={user} /> : <Navigate to='/login' />}
+          /> */}
 
           <Route 
             path='/profile'
