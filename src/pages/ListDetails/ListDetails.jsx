@@ -11,7 +11,7 @@ const ListDetails = (props) => {
   const [formData, setFormData] = useState({
     name: list.name,
     description: list.description,
-    business: '',
+    business: list.businesses,
     id: list._id
   })
 
@@ -29,7 +29,6 @@ const ListDetails = (props) => {
     listFormData.append('business', formData.business)
     listFormData.append('name', list.name)
     listFormData.append('description', list.description)
-    listFormData.append('id', list._id)
     profileService.addToList(props.user.profile, list,  listFormData)
     // navigate('/profile')
   }
@@ -42,7 +41,7 @@ const ListDetails = (props) => {
   <h2>{list.description}</h2>
   {list.businesses.map(business => (
     <>
-    <p>{business._id}</p>
+    <p>{business.name}</p>
     <button>X</button>
     </>
   ))}
