@@ -16,7 +16,7 @@ const BusinessDetails = (props) => {
     return (
       <>
       <h3>Business Details</h3>
-      <img src="TKKTKTKTKTK"/>
+      <img alt={business.name} src={business.photo}/>
       <h2>{businessDetails.name}</h2>
       <h3> 📍 {business.address}</h3>
       <h3> 🔗 {business.url}</h3>
