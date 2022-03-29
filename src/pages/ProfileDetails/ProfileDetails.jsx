@@ -19,7 +19,7 @@ console.log(props.profile);
     {props.profile.lists ? 
     <h2> {props.profile.lists.map (list => (
       <>
-        <ListCard key={list.name} list={list}/ >
+        <ListCard key={list._id} list={list}/ >
         <br />
         </>
       ))}
