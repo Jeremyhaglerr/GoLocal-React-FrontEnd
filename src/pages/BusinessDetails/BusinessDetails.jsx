@@ -23,7 +23,7 @@ const BusinessDetails = (props) => {
       <h3> 📞 {business.phoneNum}</h3>
       <h3> 📅 {business.hours}</h3>
       <h3> Added by: {business.owner.name}</h3>
-      <button className="btn btn-sm btn-danger m-left" onClick={props.handleDeleteBusiness(business._id)}>
+      <button className="btn btn-sm btn-danger m-left" onClick={()=>props.handleDeleteBusiness(business._id)}>
 
 Delete
 </button>
