@@ -64,12 +64,15 @@ const App = () => {
     .then(updatedBusiness => {
       const newBusinessArray = businesses.map(business => business._id === updatedBusiness._id ? updatedBusiness : business)
       setBusinesses(newBusinessArray)
+      navigate('/')
     })
+
   }
 
   const handleDeleteBusiness = id => {
     businessService.deleteOne(id)
     .then(deletedBusiness => setBusinesses(businesses.filter(business => business._id !== deletedBusiness._id)))
+    navigate('/')
   }
 
   const handleAddToList = (profile, list, updatedList) => {
@@ -106,7 +109,7 @@ const App = () => {
           />
 
           <Route 
-          path="/edit"
+          path="/editBusiness"
           element={
             user ? <EditBusiness  handleEditBusiness={handleEditBusiness}  /> : <Navigate to="/login" />}
           />
