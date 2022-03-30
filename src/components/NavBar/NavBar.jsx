@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-
+import styles from './NavBar.module.css'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
@@ -9,9 +9,9 @@ const NavBar = ({ user, handleLogout }) => {
   <img 
   src="/images/store.png"
   alt="logo"
-  style={{width: "40px", height: "50px"}}
-  className="navbar-brand" />
-  <Link className="navbar-brand" to="/">GoLocal</Link>
+  style={{width: "50px", height: "50px"}}
+  className={styles.navBar} />
+  <Link className={"navbar-brand"} to="/">GoLocal</Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -26,8 +26,8 @@ const NavBar = ({ user, handleLogout }) => {
       <li className="nav-item">
         <Link className="nav-link" to="/profile">Profile</Link>
       </li>
-      <li className="nav-item dropdown">
-        <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li className={"nav-item dropdown"}>
+        <Link className={"nav-link dropdown-toggle"} to="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           🛠
         </Link>
         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

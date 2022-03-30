@@ -6,13 +6,14 @@
   text-align: center;
 }
 
-.businessContainer {
-  width: 75%;
+.bizCard {
+  width: 90%;
   display: grid;
   grid-template-rows: repeat(minmax(170px, 1fr));
 	grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 30px;
-  background-color: #ffffff;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .businessCont {
@@ -40,5 +41,37 @@
 }
 
 body {
-  background-color: rgb(227, 250, 255);
+  background: hsla(180, 100%, 97%, 1);
+  
+  background: linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
+  
+  background: -moz-linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
+  
+  background: -webkit-linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
+  
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F1FFFF", endColorstr="#F3F9FA", GradientType=1 );
+  }
+
+img {
+  margin: auto;
+  margin-top: 15px;
+  max-width: 40%;
+  border: 0.3mm solid;
+  border-radius: 3%;
+  padding: 5px;
+  background-color: #fafafa;
+  color: black;
+}
+
+main {
+    background: hsla(180, 100%, 97%, 1);
+    
+    background: linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
+    
+    background: -moz-linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
+    
+    background: -webkit-linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F1FFFF", endColorstr="#F3F9FA", GradientType=1 );
+    
 }
