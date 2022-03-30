@@ -9,8 +9,10 @@ span {
   width: 40%;
   margin: auto;
   padding: 10px 20px 10px 20px;
-  border: 0.3mm solid;
+  border: 0.2mm solid;
   border-radius: 0%;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 1%;
 }
 
 h1 {
@@ -22,7 +24,9 @@ h1 {
   margin-top: 10px;
   font-size: 25px;
   padding: 5px;
-  border: 0.3mm solid;
+  border: 0.5mm solid;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 3%;
 }
 
 label {
