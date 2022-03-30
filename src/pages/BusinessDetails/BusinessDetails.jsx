@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react"
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import * as businessService from "../../services/businessService"
+import styles from './BusinessDetails.module.css'
 
 const BusinessDetails = (props) => {
     // const [businessDetails, setBusinessDetails] = useState([])
@@ -40,14 +41,16 @@ const BusinessDetails = (props) => {
 
     return (
       <>
-      <h3>Business Details</h3>
+      <h4>Business Details</h4>
       <img alt={business.name} src={business.photo}/>
-      <h2>{business.name}</h2>
+      <div className="business-info">
+      <h5>{business.name}</h5>
       <h3> 📍 {business.address}</h3>
       <h3> 🔗 {business.url}</h3>
       <h3> 📞 {business.phoneNum}</h3>
       <h3> 📅 {business.hours}</h3>
       <h3> Added by: {business.owner.name}</h3>
+      </div>
       {business.owner._id===props.user.profile ? 
       <>
         <Link to='/editBusiness' state={{business}} >
@@ -86,7 +89,7 @@ const BusinessDetails = (props) => {
       <p></p>
       }
       <>
-      <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
+      <form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className="review-form">
       <div className="form-group mb-3">
         <label htmlFor="name-input" className="form-label">
           Name<span>*</span>
