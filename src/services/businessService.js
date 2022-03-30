@@ -64,11 +64,12 @@ function createReview(review, business) {
   .then(res => res.json())
 }
 
-function deleteReview(id) {
-  return fetch(`${BASE_URL}/${id}`, {
+function deleteReview(review, id) {
+  console.log(review);
+  return fetch(`${BASE_URL}/${id}/${review}`, {
     method: 'DELETE',
     headers: {
-      'Authorization': `Bearer ${tokenService.getToken()}`
+      'Authorization': `Bearer ${tokenService.getToken()}`,
     },
   })
   .then(res => res.json())

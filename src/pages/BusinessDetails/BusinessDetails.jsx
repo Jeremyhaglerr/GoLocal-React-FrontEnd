@@ -2,6 +2,7 @@ import userEvent from '@testing-library/user-event';
 import { useState, useRef, useEffect } from "react"
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom'
+import * as businessService from "../../services/businessService"
 
 const BusinessDetails = (props) => {
     // const [businessDetails, setBusinessDetails] = useState([])
@@ -71,6 +72,12 @@ const BusinessDetails = (props) => {
           <h5>{review.rating}</h5>
           <h5>{review.review}</h5>
           {/* <h6>{review.author}</h6> */}
+          <button
+              className="btn btn-sm btn-danger m-left"
+              onClick={()=> businessService.deleteReview(review._id, business._id)}
+            >
+              Delete
+            </button>
         </div>
       )}
       
