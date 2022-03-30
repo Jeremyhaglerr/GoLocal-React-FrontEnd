@@ -27,8 +27,9 @@ console.log(props.profile);
       </h2>
       : <p></p>
     }
+    
+      <Link to= '/addlist'>Add List</Link>
     </div>
-
     <h2> {ownedBusinesses.map (business => (
         <BusinessCard
           key={business._id}
