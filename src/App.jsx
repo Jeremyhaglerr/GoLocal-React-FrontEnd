@@ -90,16 +90,20 @@ const App = () => {
 
   const handleAddToList = (profile, list, updatedList) => {
     profileService.addToList(profile, list, updatedList)
+    profileService.getProfile(profile)
     .then(updatedProfile => {
       setProfile(updatedProfile)
     })
+    navigate('/profile')
   }
   
-  const handleRemoveFromList = (profile, list, updatedList) => {
-    profileService.removeFromList(profile, list, )
+  const handleRemoveFromList = (profile, list, business) => {
+    profileService.removeFromList(profile, list, business )
+    profileService.getProfile(profile)
     .then(updatedProfile => {
       setProfile(updatedProfile)
     })
+    navigate('/profile')
   }
 
   return (
@@ -157,7 +161,7 @@ const App = () => {
           />
 
           <Route 
-            path='/profile'
+            path='/profile/*'
             element={
               user ? <ProfileDetails businesses={businesses} user={user} profile={profile} /> : <Navigate to='/login' />}
           />
