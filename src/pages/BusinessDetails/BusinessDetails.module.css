@@ -1,0 +1,81 @@
+h3 {
+  text-align: center;
+  margin: auto;
+  background-color: white;
+  width: 30%;
+  padding: 10px;
+  border: 0.2mm solid;
+  border-radius: 5%;
+  font-size: 18px;
+}
+
+h4 {
+  margin-top: 20px;
+  background-color: white;
+  width: 18%;
+  padding: 10px;
+  border: 0.2mm solid;
+  border-radius: 5%;
+  font-size: 18px;
+  text-align: center;
+  margin: 20px 620px 0px;
+  margin-bottom: 10px;
+}
+
+h5 {
+  text-align: center;
+  margin: auto;
+  background-color: white;
+  width: 20%;
+  padding: 10px;
+  border: 0.5mm solid;
+  border-radius: 5%;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+img {
+  max-width: 15%;
+  align-self: center;
+  margin-left: 644px;
+  
+  background-color: #fafafa;
+  border: 0.5mm ridge;
+  padding: 10px;
+  border-radius: 5%;
+}
+
+body {
+background: hsla(180, 100%, 97%, 1);
+
+background: linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
+
+background: -moz-linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
+
+background: -webkit-linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F1FFFF", endColorstr="#F3F9FA", GradientType=1 );
+}
+
+form {
+  text-align: center;
+  background-color: white;
+  width: 25%;
+  margin: auto; 
+  padding: 10px 20px 10px 20px;
+  border: 0.3mm solid; 
+  border-radius: 3%;
+  margin-bottom: 30px;
+}
+
+label {
+  padding: 0px;
+  margin: 0px;
+}
+
+.btn {
+  padding: 0px;
+  margin: 0px;
+}
