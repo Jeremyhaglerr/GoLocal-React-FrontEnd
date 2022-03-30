@@ -6,6 +6,11 @@ const NavBar = ({ user, handleLogout }) => {
     <>
       {user ?
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <img 
+  src="/images/store.png"
+  alt="logo"
+  style={{width: "40px", height: "50px"}}
+  className="navbar-brand" />
   <Link className="navbar-brand" to="/">GoLocal</Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
