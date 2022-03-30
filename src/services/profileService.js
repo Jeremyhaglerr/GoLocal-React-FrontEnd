@@ -27,14 +27,13 @@ function createList(id, list) {
   .then(res => res.json())
 }
 
-function deleteList(user, list) {
+function deleteList(id, list) {
   console.log(list);
-  return fetch(`${BASE_URL}/${user}`, {
+  return fetch(`${BASE_URL}/${id}/${list}`, {
     method: 'DELETE',
     headers: {
-      'Authorization': `Bearer ${tokenService.getToken()}`
+      'Authorization': `Bearer ${tokenService.getToken()}`,
     },
-    body: list
   })
   .then(res => res.json())
 }
@@ -52,12 +51,14 @@ function addToList(id, list, updatedList) {
 }
 
 function removeFromList(id, list, business) {
+  const data = {list, business}
   return fetch(`${BASE_URL}/${id}/remove`, {
     method: "PUT",
     headers: { 
       'Authorization': `Bearer ${tokenService.getToken()}`,
+      'content-type': 'application/json' 
     },
-    body: business
+  body: JSON.stringify(data)
 
 
   })
