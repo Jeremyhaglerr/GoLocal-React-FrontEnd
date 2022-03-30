@@ -27,12 +27,14 @@ function createList(id, list) {
   .then(res => res.json())
 }
 
-function deleteList(list) {
-  return fetch(`${BASE_URL}/${list}`, {
+function deleteList(user, list) {
+  console.log(list);
+  return fetch(`${BASE_URL}/${user}`, {
     method: 'DELETE',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
     },
+    body: list
   })
   .then(res => res.json())
 }
@@ -56,7 +58,7 @@ function removeFromList(id, list, business) {
       'Authorization': `Bearer ${tokenService.getToken()}`,
     },
     body: business
-    
+
 
   })
   .then(res => res.json())
