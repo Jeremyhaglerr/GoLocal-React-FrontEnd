@@ -5,7 +5,7 @@ import BusinessCard from "../../components/BusinessCard/BusinessCard"
 
 const ListDetails = (props) => {
   const location = useLocation()
-  const list = location.state.list
+  const list = location.state?.list
   const navigate = useNavigate()
   const formElement = useRef()
   const [validForm, setValidForm] = useState(false)
@@ -31,33 +31,26 @@ const ListDetails = (props) => {
     listFormData.append('name', list.name)
     listFormData.append('description', list.description)
     listFormData.append("id", list._id)
-    profileService.addToList(props.user.profile, list,  listFormData)
-    // navigate('/profile')
+    props.handleAddToList(props.user.profile, list,  listFormData)
   }
 
-const handleRemove = (evt, business) => {
-  evt.preventDefault()
-  console.log(evt);
-  console.log(business);
-  // const removedFormData = new FormData()
-  // removedFormData.append()
-}
+
 
   return ( 
   <>
   <h1>{list.name}</h1>
   <h2>{list.description}</h2>
   {list.businesses.map(business => (
-    <>
-    <BusinessCard key={business._id} business={business} user={props.user}/>
-    <button type='submit' className="btn btn-primary btn-fluid" onClick={()=> profileService.removeFromList(props.user.profile, list,  business)} >Remove</button>
-    </>
+    <div key={business._id}>
+    <BusinessCard  business={business} user={props.user}/>
+    <button type='submit' className="btn btn-primary btn-fluid" onClick={()=> props.handleRemoveFromList(props.user.profile, list,  business)} >Remove</button>
+    </div>
   ))}
   <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 				<div className="form-group mb-3">
         <label htmlFor="business-select">Add a business</label>
-        <select className="form-control" value={formData.business} name="business" id="business-select" onChange={handleChange}>
-        <option  value='none'>Choose a business</option>
+        <select className="form-control" value={formData.business} name="business" id="business-select" onChange={handleChange} required>
+          <option value=""></option>
             {props.businesses.map((business)=>(
             <option key={business._id} value={business._id} >{business.name}</option>
             ))}
