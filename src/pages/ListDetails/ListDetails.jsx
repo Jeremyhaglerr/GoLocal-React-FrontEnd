@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import { useNavigate, useLocation } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
+import BusinessCard from "../../components/BusinessCard/BusinessCard"
 
 const ListDetails = (props) => {
   const location = useLocation()
@@ -34,7 +35,13 @@ const ListDetails = (props) => {
     // navigate('/profile')
   }
 
-
+const handleRemove = (evt, business) => {
+  evt.preventDefault()
+  console.log(evt);
+  console.log(business);
+  // const removedFormData = new FormData()
+  // removedFormData.append()
+}
 
   return ( 
   <>
@@ -42,13 +49,13 @@ const ListDetails = (props) => {
   <h2>{list.description}</h2>
   {list.businesses.map(business => (
     <>
-    <p key={business.name} >{business.name}</p>
-    <button>X</button>
+    <BusinessCard key={business._id} business={business} user={props.user}/>
+    <button type='submit' className="btn btn-primary btn-fluid" onClick={()=> profileService.removeFromList(props.user.profile, list,  business)} >Remove</button>
     </>
   ))}
   <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 				<div className="form-group mb-3">
-        <label htmlFor="business-select">Add a business:</label>
+        <label htmlFor="business-select">Add a business</label>
         <select className="form-control" value={formData.business} name="business" id="business-select" onChange={handleChange}>
         <option  value='none'>Choose a business</option>
             {props.businesses.map((business)=>(

@@ -27,8 +27,18 @@ function createList(id, list) {
   .then(res => res.json())
 }
 
-function addToList(id, list, updatedList) {
+function deleteList(id, list) {
+  console.log(list);
+  return fetch(`${BASE_URL}/${id}/${list}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+    },
+  })
+  .then(res => res.json())
+}
 
+function addToList(id, list, updatedList) {
   return fetch(`${BASE_URL}/${id}`, {
     method: "PUT",
     headers: { 
@@ -40,15 +50,19 @@ function addToList(id, list, updatedList) {
   .then(res => res.json())
 }
 
-function deleteList(list) {
-  return fetch(`${BASE_URL}/${list}`, {
-    method: 'DELETE',
-    headers: {
-      'Authorization': `Bearer ${tokenService.getToken()}`
+function removeFromList(id, list, business) {
+  const data = {list, business}
+  return fetch(`${BASE_URL}/${id}/remove`, {
+    method: "PUT",
+    headers: { 
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'content-type': 'application/json' 
     },
+  body: JSON.stringify(data)
+
+
   })
   .then(res => res.json())
 }
 
-
-export { getAllProfiles,getProfile, createList, addToList, deleteList }
+export { getAllProfiles,getProfile, createList, addToList, deleteList, removeFromList }
