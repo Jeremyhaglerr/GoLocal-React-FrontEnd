@@ -21,6 +21,7 @@ console.log(props.profile);
       <>
         <ListCard key={list._id} list={list}/ >
         <br />
+        <button onClick={()=> profileService.deleteList(props.user.profile, list._id)} >X</button>
         </>
       ))}
       </h2>
