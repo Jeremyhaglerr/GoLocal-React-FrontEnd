@@ -143,11 +143,11 @@ const App = () => {
           element={user ? <BusinessDetails  handleAddReview={handleAddReview}  /> : <Navigate to="/login" />}
           /> */}
 
-          {/* <Route
+          <Route
           path='/business-details'
           element={
             user ? <BusinessDetails handleDeleteReview={handleDeleteReview} reviews={reviews} user={user} /> : <Navigate to='/login' />}
-          /> */}
+          />
 
           <Route 
             path='/profile'
