@@ -1,0 +1,11 @@
+.cardImg {
+  margin: auto;
+  margin-top: 15px;
+  max-width: 40%;
+  border: 0.3mm solid;
+  border-radius: 3%;
+  padding: 5px;
+  background-color: #fafafa;
+  color: black;
+  
+}
