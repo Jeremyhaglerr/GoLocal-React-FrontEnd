@@ -93,6 +93,7 @@ function CreateBusiness (props) {
             value={formData.phoneNum}
             onChange={handleChange}
             placeholder='Ex: (123)456-7890'
+						required
 					/>
 				</div>
         <div className="form-group mb-4">
