@@ -6,12 +6,11 @@ function BusinessCard({business}) {
       <>
    <Link key={business._id} state={{business}}  to='/business-details' >
     <div className="card">
+        <img className="card-image" alt={business.name} src={business.photo}/>
       <div className="card-body">
         <h2 className="card-text">{business.name}</h2>
         <p className="card-text"> 📍 {business.address}</p>
         <p className="card-text"> 🔗 {business.url}</p>
-        <p className="card-text"> 📞 {business.phoneNum}</p> 
-        <p className="card-text"> 📅 {business.hours}</p> 
         <p className="card-text">Added by {business.owner.name}</p> 
       </div>
      </div>
