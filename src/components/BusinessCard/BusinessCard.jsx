@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import styles from './BusinessCard.module.css'
 
 function BusinessCard({business}) {
   console.log()
@@ -6,7 +7,7 @@ function BusinessCard({business}) {
       <>
    <Link key={business._id} state={{business}}  to='/business-details' >
     <div className="card">
-        <img className="card-image" alt={business.name} src={business.photo}/>
+        <img className={styles.cardImg} alt={business.name} src={business.photo}/>
       <div className="card-body">
         <h2 className="card-text">{business.name}</h2>
         <p className="card-text"> 📍 {business.address}</p>

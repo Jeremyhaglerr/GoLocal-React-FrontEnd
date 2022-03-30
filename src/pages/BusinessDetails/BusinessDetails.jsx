@@ -42,7 +42,7 @@ const BusinessDetails = (props) => {
     return (
       <>
       <h4>Business Details</h4>
-      <img alt={business.name} src={business.photo}/>
+      <img alt={business.name} src={business.photo} className={styles.businessPic}/>
       <div className="business-info">
       <h5>{business.name}</h5>
       <h3> 📍 {business.address}</h3>
@@ -53,7 +53,7 @@ const BusinessDetails = (props) => {
       </div>
       {business.owner._id===props.user.profile ? 
       <>
-        <Link to='/editBusiness' state={{business}} >
+        <Link to='/editBusiness' state={{business}} className={styles.editBtn}>
         <button className="btn btn-sm btn-danger m-left" >
           Edit
         </button>
@@ -66,7 +66,7 @@ const BusinessDetails = (props) => {
       <></>
       }
 
-      <h3>Reviews:</h3>
+      <h3 className={styles.reviewsTitle}>Reviews:</h3>
       {business.reviews.length ?
       <>
       {business.reviews.map(review =>
@@ -76,7 +76,7 @@ const BusinessDetails = (props) => {
           <h5>{review.review}</h5>
           {/* <h6>{review.author}</h6> */}
           <button
-              className="btn btn-sm btn-danger m-left"
+              className="btn-yup btn-sm btn-danger m-left"
               onClick={()=> businessService.deleteReview(review._id, business._id)}
             >
               Delete
