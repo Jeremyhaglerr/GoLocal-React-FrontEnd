@@ -41,10 +41,10 @@ const BusinessDetails = (props) => {
 
     return (
       <>
-      <h4>Business Details</h4>
+      
       <img alt={business.name} src={business.photo} className={styles.businessPic}/>
-      <div className="business-info">
-      <h5>{business.name}</h5>
+      <div className={styles.businessInfo}>
+      <h3><strong>{business.name}</strong></h3>
       <h3> 📍 {business.address}</h3>
       <h3> 🔗 {business.url}</h3>
       <h3> 📞 {business.phoneNum}</h3>
@@ -66,17 +66,17 @@ const BusinessDetails = (props) => {
       <></>
       }
 
-      <h3 className={styles.reviewsTitle}>Reviews:</h3>
       {business.reviews.length ?
       <>
       {business.reviews.map(review =>
-        <div key={review.name}>
+        <div key={review.name} className={styles.reviewList}>
+          <h4 className={styles.reviewsTitle}><strong>Reviews:</strong></h4>
           <h4>{review.name}</h4>
-          <h5>{review.rating}</h5>
-          <h5>{review.review}</h5>
+          <h4>{review.rating}</h4>
+          <h4>{review.review}</h4>
           {/* <h6>{review.author}</h6> */}
           <button
-              className="btn-yup btn-sm btn-danger m-left"
+              className={styles.deleteReviewBtn}
               onClick={()=> businessService.deleteReview(review._id, business._id)}
             >
               Delete
@@ -89,7 +89,7 @@ const BusinessDetails = (props) => {
       <p></p>
       }
       <>
-      <form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className="review-form">
+      <form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className={styles.reviewForm}>
       <div className="form-group mb-3">
         <label htmlFor="name-input" className="form-label">
           Name<span>*</span>
@@ -151,10 +151,10 @@ const BusinessDetails = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className="d-grid">
+      <div className={styles.deleteReview}>
         <button
           type="submit"
-          className="btn btn-primary btn-fluid"
+          className={"btn btn-primary btn-fluid"}
           disabled={!validForm}
         >
           Add Review
