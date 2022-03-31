@@ -3,9 +3,13 @@
   margin-top: 15px;
   max-width: 40%;
   border: 0.3mm solid;
-  border-radius: 3%;
+  border-radius: 15px;
   padding: 5px;
   background-color: #fafafa;
   color: black;
   
+}
+
+.card {
+  background-color: rgb(232, 232, 232)
 }

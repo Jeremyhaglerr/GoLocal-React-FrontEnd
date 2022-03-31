@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  border-radius: 15px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-width: fit-content;
+}
+
+.listButton {
+  justify-self: center;
+  align-self: center;
+  background-color: white;
+}
+
+.card {
+  width :40vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.list {
+  text-align: center;
+  background-color: white;
+  width: 20vw;
+  margin: 10px auto;
+  font-size: 25px;
+  padding: 5px;
+  border: 0.5mm solid;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 15px;
+}
+
