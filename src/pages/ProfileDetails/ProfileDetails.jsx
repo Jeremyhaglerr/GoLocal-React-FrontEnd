@@ -20,10 +20,6 @@ const ProfileDetails = (props) => {
     <>
       {profile ?
         <>
-        <div className={styles.header}>
-          <h1 className={styles.profileName}>{profile.name}</h1>
-          {/* <h4>{profile.city}</h4> */}
-        </div>
         <br />
           <div className={styles.container}>
             <h4 className={styles.title} > Your Lists</h4>
@@ -44,13 +40,10 @@ const ProfileDetails = (props) => {
 
           </div>
           <div className={styles.container} >
-
           <h4 className={styles.title} >Your Businesses</h4>
           {ownedBusinesses.map(business => (
-            <div className={styles.card}>
-
+            <div  key={business._id} className={styles.card}>
               <BusinessCard
-                key={business._id}
                 business={business}
                 user={props.user}
               />
