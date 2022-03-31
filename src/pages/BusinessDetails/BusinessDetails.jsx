@@ -18,6 +18,7 @@ const BusinessDetails = (props) => {
         name: '',
         rating: '',
         review: '',
+        author: ''
       })
 
       useEffect(()=> {
@@ -34,7 +35,7 @@ const BusinessDetails = (props) => {
         reviewFormData.append('name', formData.name)
         reviewFormData.append('rating', formData.rating)
         reviewFormData.append('review', formData.review)
-        // reviewFormData.append('author', formData.author)
+        reviewFormData.append('author', props.user.profile)
         console.log(reviewFormData);
         props.handleAddReview(reviewFormData, business._id)
       }
@@ -69,18 +70,21 @@ const BusinessDetails = (props) => {
       {business.reviews.length ?
       <>
       {business.reviews.map(review =>
-        <div key={review.name} className={styles.reviewList}>
+        <div key={review._id} className={styles.reviewList}>
           <h4 className={styles.reviewsTitle}><strong>Reviews:</strong></h4>
           <h4>{review.name}</h4>
           <h4>{review.rating}</h4>
           <h4>{review.review}</h4>
-          {/* <h6>{review.author}</h6> */}
+          {review.author === props.user.profile ?
           <button
               className={styles.deleteReviewBtn}
               onClick={()=> businessService.deleteReview(review._id, business._id)}
             >
               Delete
             </button>
+            :
+            <></>
+          }
         </div>
       )}
       
