@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import * as profileService from '../../services/profileService'
 import { useNavigate } from 'react-router-dom'
+import styles from './CreateList.module.css'
 
 function CreateList (props) {
   const navigate = useNavigate()
@@ -31,8 +32,8 @@ function CreateList (props) {
 
 	return (
 		<>
-			<h1>Create A List</h1>
-			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
+			<h1 className={styles.createListHeader}>Create A List</h1>
+			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className={styles.createListForm}>
 				<div className="form-group mb-3">
 					<label htmlFor="name-input" className="form-label">
 						List Name<span>* </span>

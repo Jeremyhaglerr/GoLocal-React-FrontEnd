@@ -40,7 +40,7 @@ const ListDetails = (props) => {
   return (
     <>
       <div className={styles.header} >
-        <h1 className={styles.title}>{list.name}</h1>
+        <h1 className={styles.listName}>{list.name}</h1>
         <h4 className={styles.title} >{list.description}</h4>
       </div>
       <form className={styles.form} autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
