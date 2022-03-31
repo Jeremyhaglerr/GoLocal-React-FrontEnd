@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import './CreateBusiness.css'
+import styles from './CreateBusiness.module.css'
 
 function CreateBusiness (props) {
   const formElement = useRef()
@@ -38,7 +38,7 @@ function CreateBusiness (props) {
 
 	return (
 		<>
-			<h1>Add a business</h1>
+			<h1 className={styles.title}>Add a business</h1>
 			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className="create-business-form">
 				<div className="form-group mb-3">
 					<label htmlFor="name-input" className="form-label">
