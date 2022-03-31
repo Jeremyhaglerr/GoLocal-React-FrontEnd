@@ -54,6 +54,9 @@ h7 {
   position: grid;
   float: left;
   max-width: 25%;
+  /* max-height: 15%; */
+  max-height: 275px;
+  width: 500px;
   margin: 50px 56px 0px 100px;
   text-align: center;
   background-color: #fafafa;

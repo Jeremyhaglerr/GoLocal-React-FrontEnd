@@ -6,6 +6,17 @@
 
 .title {
   border-radius: 15px;
+  margin-top: 10px;
+}
+
+.listName {
+  background-color: white;
+  width: 25%;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  border: 0.3mm solid;
+  border-radius: 2%;
 }
 
 .card {
@@ -29,6 +40,7 @@
 .form {
   border-radius: 15px;
   margin-bottom: 5%;
+  padding: 20px;
 }
 .button {
   margin: 10px auto;

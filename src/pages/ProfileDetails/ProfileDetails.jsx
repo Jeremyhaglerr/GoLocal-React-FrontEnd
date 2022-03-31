@@ -21,7 +21,7 @@ const ProfileDetails = (props) => {
       {profile ?
         <>
         <div className={styles.header}>
-          <h1>Hello, {profile.name}</h1>
+          <h1 className={styles.profileName}>{profile.name}</h1>
           {/* <h4>{profile.city}</h4> */}
         </div>
         <br />
