@@ -73,5 +73,6 @@ main {
     background: -webkit-linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
     
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F1FFFF", endColorstr="#F3F9FA", GradientType=1 );
+    background-size: cover;
     
 }
