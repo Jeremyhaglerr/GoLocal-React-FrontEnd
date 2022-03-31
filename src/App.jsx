@@ -5,7 +5,6 @@ import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
-import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import * as businessService from './services/businessService'
@@ -21,7 +20,6 @@ import ListDetails from './pages/ListDetails/ListDetails'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [businesses, setBusinesses]= useState([])
-  // const [reviews, setReviews]= useState([])
   const [profile, setProfile] = useState([])
   const navigate = useNavigate()
 
@@ -64,14 +62,14 @@ const App = () => {
     businessService.createReview(newReviewData, business)
     businessService.getAll()
     .then(allBusinesses => setBusinesses(allBusinesses))
-    navigate('/')
+    window.location.reload(false)
   }
 
-  const handleDeleteReview = id => {
-    businessService.deleteReview(id)
+  const handleDeleteReview = (reviewId, businessId) => {
+    businessService.deleteReview(reviewId, businessId)
     businessService.getAll()
     .then(allBusinesses => setBusinesses(allBusinesses))
-    navigate('/')
+    window.location.reload(false)
   }
 
   const handleEditBusiness = updatedBusinessData => {
@@ -105,7 +103,7 @@ const App = () => {
     .then(updatedProfile => {
       setProfile(updatedProfile)
     })
-    window.location.reload(false);
+    window.location.reload(false)
   }
 
   const handleAddToList = (profile, list, updatedList) => {
@@ -114,7 +112,7 @@ const App = () => {
     .then(updatedProfile => {
       setProfile(updatedProfile)
     })
-    navigate('/profile')
+    window.location.reload(false)
   }
   
   const handleRemoveFromList = (profile, list, business) => {
@@ -123,7 +121,7 @@ const App = () => {
     .then(updatedProfile => {
       setProfile(updatedProfile)
     })
-    navigate('/profile')
+    window.location.reload(false)
   }
 
   return (
@@ -138,10 +136,6 @@ const App = () => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
-        {/* <Route
-          path="/profiles"
-          element={user ? <Profiles /> : <Navigate to="/login" />}
-        /> */}
         <Route
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
@@ -167,12 +161,7 @@ const App = () => {
           <Route
             path='/business-details'
             element={
-              user ? <BusinessDetails  handleAddReview={handleAddReview} handleDeleteBusiness={handleDeleteBusiness} businesses={businesses} user={user} /> : <Navigate to='/login' />} />
-
-          {/* <Route
-          path="/business-details"
-          element={user ? <BusinessDetails  handleAddReview={handleAddReview}  /> : <Navigate to="/login" />}
-          /> */}
+              user ? <BusinessDetails  handleAddReview={handleAddReview} handleDeleteReview={handleDeleteReview} handleDeleteBusiness={handleDeleteBusiness} businesses={businesses} user={user} /> : <Navigate to='/login' />} />
 
           <Route
           path='/business-details'
