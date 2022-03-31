@@ -90,6 +90,24 @@ const App = () => {
     navigate('/')
   }
 
+  const handleCreateList = (profile, listFormData) => {
+    profileService.createList(profile, listFormData)
+    profileService.getProfile(profile)
+    .then(updatedProfile => {
+      setProfile(updatedProfile)
+    })
+    navigate('/profile')
+  }
+
+  const handleDeleteList = (profile, listId) => {
+    profileService.deleteList(profile, listId)
+    profileService.getProfile(profile)
+    .then(updatedProfile => {
+      setProfile(updatedProfile)
+    })
+    window.location.reload(false);
+  }
+
   const handleAddToList = (profile, list, updatedList) => {
     profileService.addToList(profile, list, updatedList)
     profileService.getProfile(profile)
@@ -163,15 +181,15 @@ const App = () => {
           />
 
           <Route 
-            path='/profile/*'
+            path='/profile'
             element={
-              user ? <ProfileDetails businesses={businesses} user={user} profile={profile} /> : <Navigate to='/login' />}
+              user ? <ProfileDetails handleDeleteList={handleDeleteList} businesses={businesses} user={user} profile={profile} /> : <Navigate to='/login' />}
           />
 
           <Route
           path='/addList'
           element={
-            user ? <CreateList businesses={businesses} user={user} /> : <Navigate to='/login' />}
+            user ? <CreateList businesses={businesses} handleCreateList={handleCreateList}  user={user} /> : <Navigate to='/login' />}
           />
 
           <Route

@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
 import BusinessCard from '../../components/BusinessCard/BusinessCard';
 import ListCard from '../../components/ListCard/ListCard';
+import styles from './ProfileDetails.module.css'
 
 const ProfileDetails = (props) => {
-  const [profile, setProfile] = useState(props.profile)
+  const [profile, setProfile] = useState()
   console.log(profile);
   const ownedBusinesses = props.businesses.filter(business => business.owner._id === profile?._id)
   
@@ -19,32 +20,44 @@ const ProfileDetails = (props) => {
     <>
       {profile ?
         <>
+        <div className={styles.header}>
           <h1>Hello, {profile.name}</h1>
-          <h4>{profile.city}</h4>
-          <div className="listcontainer">
-            <h5>Lists:</h5>
+          {/* <h4>{profile.city}</h4> */}
+        </div>
+        <br />
+          <div className={styles.container}>
+            <h4 className={styles.title} > Your Lists</h4>
+            <div className={styles.listButton} >
+            <Link to='/addlist'><button className="btn btn-outline-secondary" >Add New List</button></Link>
+            </div>
             {profile.lists ?
               <h2> {profile.lists.map(list => (
-                <div key={list._id}>
+                <div className={styles.list} key={list._id}>
                   <ListCard list={list} />
                   <br />
-                  <button onClick={() => profileService.deleteList(props.user.profile, list._id)} >X</button>
+                  <button className='btn btn-outline-secondary'  onClick={() => props.handleDeleteList(props.user.profile, list._id)} >Delete</button>
                 </div>
               ))}
               </h2>
               : <p></p>
             }
 
-          <Link to='/addlist'>Add List</Link>
           </div>
+          <div className={styles.container} >
+
+          <h4 className={styles.title} >Your Businesses</h4>
           {ownedBusinesses.map(business => (
-            <BusinessCard
-              key={business._id}
-              business={business}
-              user={props.user}
-            />
+            <div className={styles.card}>
+
+              <BusinessCard
+                key={business._id}
+                business={business}
+                user={props.user}
+              />
+            </div>
 
           ))}
+          </div>
         </>
 
         :
