@@ -3,21 +3,19 @@ import styles from './BusinessCard.module.css'
 
 function BusinessCard({ business }) {
   console.log()
-  return (
-    <>
-      <Link key={business._id} state={{ business }} to='/business-details' >
-          <div className="card">
-        <div className={styles.card} >
-            <img className={styles.cardImg} alt={business.name} src={business.photo} />
-            <div className="card-body">
-              <h2 className="card-text">{business.name}</h2>
-              <p className="card-text"> 📍 {business.address}</p>
-              <p className="card-text"> 🔗 {business.url}</p>
-              <p className="card-text">Added by {business.owner.name}</p>
-            </div>
-          </div>
-        </div>
-      </Link>
+    return(
+      <>
+    <div className="card">
+      <div className="card-body">
+      <Link key={business._id} state={{business}}  to='/business-details' >
+        <img className={styles.cardImg} alt={business.name} src={business.photo}/>
+        <h2 className="card-text">{business.name}</h2>
+      </Link>  
+        <p className="card-text"> 📍 {business.address}</p>
+        <p className="card-text"> 🔗 {business.url}</p>
+        <p className="card-text">Added by {business.owner.name}</p> 
+      </div>
+    </div>  
 
       {/* {
         user.profile === business.owner?._id ?
