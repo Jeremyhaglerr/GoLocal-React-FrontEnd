@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Landing = (props) => {
   return (
     <main className={styles.container}>
-      <h1>hello, {props.user ? props.user.name : 'friend'}</h1>
+      <h1>All Businesses</h1>
       <h2 className={styles.bizCard}> {props.businesses.map (business => ( 
         <BusinessCard key={business._id} business={business}
          user={props.user}

@@ -25,7 +25,7 @@ function CreateList (props) {
     listFormData.append('name', formData.name)
     listFormData.append('description', formData.description)
     console.log(listFormData);
-    profileService.createList(props.user.profile, listFormData)
+    props.handleCreateList(props.user.profile, listFormData)
     navigate('/profile')
   }
 

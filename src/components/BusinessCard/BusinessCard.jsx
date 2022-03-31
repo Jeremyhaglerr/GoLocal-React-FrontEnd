@@ -1,21 +1,23 @@
 import { Link } from 'react-router-dom'
 import styles from './BusinessCard.module.css'
 
-function BusinessCard({business}) {
+function BusinessCard({ business }) {
   console.log()
-    return(
-      <>
-   <Link key={business._id} state={{business}}  to='/business-details' >
-    <div className="card">
-        <img className={styles.cardImg} alt={business.name} src={business.photo}/>
-      <div className="card-body">
-        <h2 className="card-text">{business.name}</h2>
-        <p className="card-text"> 📍 {business.address}</p>
-        <p className="card-text"> 🔗 {business.url}</p>
-        <p className="card-text">Added by {business.owner.name}</p> 
-      </div>
-     </div>
-    </Link>    
+  return (
+    <>
+      <Link key={business._id} state={{ business }} to='/business-details' >
+          <div className="card">
+        <div className={styles.card} >
+            <img className={styles.cardImg} alt={business.name} src={business.photo} />
+            <div className="card-body">
+              <h2 className="card-text">{business.name}</h2>
+              <p className="card-text"> 📍 {business.address}</p>
+              <p className="card-text"> 🔗 {business.url}</p>
+              <p className="card-text">Added by {business.owner.name}</p>
+            </div>
+          </div>
+        </div>
+      </Link>
 
       {/* {
         user.profile === business.owner?._id ?
@@ -25,7 +27,7 @@ function BusinessCard({business}) {
         to='/edit'
         state={{business}}
       > */}
-              {/* Edit
+      {/* Edit
             </Link>
             <button
             className="btn btn-sm btn-danger m-left"
@@ -34,12 +36,12 @@ function BusinessCard({business}) {
             Delete
             </button>
           </div> */}
-        
-        {/* <div className="card-body">
+
+      {/* <div className="card-body">
           <p className="card-text">- {business.owner?.name ? business.owner?.name : 'Some person'}'s pup</p>
         </div> */}
-      
-        </>
+
+    </>
   )
 }
 
