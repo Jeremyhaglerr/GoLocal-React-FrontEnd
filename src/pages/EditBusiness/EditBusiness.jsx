@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import './EditBusiness.css'
+import styles from './EditBusiness.module.css'
 import { Link, useLocation } from 'react-router-dom'
 
 function EditBusiness (props) {
@@ -37,7 +37,7 @@ function EditBusiness (props) {
 
 	return (
 		<>
-			<h1>Update Business</h1>
+			<h1 className={styles.header} >Update Business</h1>
 			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 				<div className="form-group mb-3">
 					<label htmlFor="name-input" className="form-label">
