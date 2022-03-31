@@ -62,7 +62,10 @@ const BusinessDetails = (props) => {
         <button className="btn btn-sm btn-danger m-left" onClick={()=>props.handleDeleteBusiness(business._id)}>
           Delete
         </button></span>
-        <>
+        </>
+        :
+          <></>
+      }
       <form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className={styles.reviewForm}>
       <div className="form-group mb-3">
         <label htmlFor="name-input" className="form-label">
@@ -115,11 +118,6 @@ const BusinessDetails = (props) => {
         </button>
       </div>
     </form>
-    </>
-      </>
-      :
-      <></>
-      }
 
       {business.reviews.length ?
       <>
@@ -134,7 +132,7 @@ const BusinessDetails = (props) => {
           <button
               className={styles.deleteReviewBtn}
               onClick={()=> businessService.deleteReview(review._id, business._id)}
-            >
+              >
               Delete
             </button>
         </div>
@@ -143,9 +141,9 @@ const BusinessDetails = (props) => {
       </>
       :
       <p></p>
-      }
+    }
 
-  </>
+    </>
   )
     }
 
