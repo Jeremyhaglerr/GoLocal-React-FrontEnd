@@ -58,37 +58,11 @@ const BusinessDetails = (props) => {
           Edit
         </button>
         </Link>
+        <span className={styles.deleteBtn}>
         <button className="btn btn-sm btn-danger m-left" onClick={()=>props.handleDeleteBusiness(business._id)}>
           Delete
-        </button>
-      </>
-      :
-      <></>
-      }
-
-      {business.reviews.length ?
-      <>
-      {business.reviews.map(review =>
-        <div key={review.name} className={styles.reviewList}>
-          <h4 className={styles.reviewsTitle}><strong>Reviews:</strong></h4>
-          <h4>{review.name}</h4>
-          <h4>{review.rating}</h4>
-          <h4>{review.review}</h4>
-          {/* <h6>{review.author}</h6> */}
-          <button
-              className={styles.deleteReviewBtn}
-              onClick={()=> businessService.deleteReview(review._id, business._id)}
-            >
-              Delete
-            </button>
-        </div>
-      )}
-      
-      </>
-      :
-      <p></p>
-      }
-      <>
+        </button></span>
+        <>
       <form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className={styles.reviewForm}>
       <div className="form-group mb-3">
         <label htmlFor="name-input" className="form-label">
@@ -118,26 +92,6 @@ const BusinessDetails = (props) => {
           required
         />
       </div>
-      {/* <div className="form-group mb-3">
-        <label htmlFor="rating-input" className="form-label"></label>
-      <div id="full-stars-example-two">
-    <div class="rating-group">
-        <input disabled checked class="rating__input rating__input--none" name="rating3" id="rating3-none" value="0" type="radio">
-        <label aria-label="1 star" class="rating__label" for="rating3-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-1" value="1" type="radio">
-        <label aria-label="2 stars" class="rating__label" for="rating3-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-2" value="2" type="radio">
-        <label aria-label="3 stars" class="rating__label" for="rating3-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-3" value="3" type="radio">
-        <label aria-label="4 stars" class="rating__label" for="rating3-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-4" value="4" type="radio">
-        <label aria-label="5 stars" class="rating__label" for="rating3-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-5" value="5" type="radio">
-        </div>
-        <p class="desc" style="font-family: sans-serif; font-size:0.9rem">Full stars<br/>
-    Must select a star value</p>
-        </div>
-        </div> */}
       <div className="form-group mb-4">
         <label htmlFor="review-input" className="form-label">
           Review
@@ -162,6 +116,35 @@ const BusinessDetails = (props) => {
       </div>
     </form>
     </>
+      </>
+      :
+      <></>
+      }
+
+      {business.reviews.length ?
+      <>
+      {business.reviews.map(review =>
+        <div key={review.name} className={styles.reviewList}>
+          <table></table>
+          <h4 className={styles.reviewsTitle}><strong>Reviews:</strong></h4>
+          <h4>{review.name}</h4>
+          <h4>{review.rating}</h4>
+          <h4>{review.review}</h4>
+          {/* <h6>{review.author}</h6> */}
+          <button
+              className={styles.deleteReviewBtn}
+              onClick={()=> businessService.deleteReview(review._id, business._id)}
+            >
+              Delete
+            </button>
+        </div>
+      )}
+      
+      </>
+      :
+      <p></p>
+      }
+
   </>
   )
     }
