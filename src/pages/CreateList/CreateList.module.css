@@ -1,0 +1,14 @@
+.createListHeader {
+  background-color: white;
+  width: 25%;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  border: 0.7mm double;
+  border-radius: 15px;
+}
+
+.createListForm {
+  margin-top: 20px;
+  padding: 15px;
+}
