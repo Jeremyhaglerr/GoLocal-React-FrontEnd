@@ -11,7 +11,7 @@
 
 .listName {
   background-color: white;
-  width: 25%;
+  width: fit-content;
   text-align: center;
   margin: auto;
   margin-top: 20px;

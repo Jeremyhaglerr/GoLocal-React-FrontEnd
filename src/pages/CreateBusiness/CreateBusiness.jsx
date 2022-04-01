@@ -39,7 +39,7 @@ function CreateBusiness (props) {
 	return (
 		<>
 			<h1 className={styles.title}>Add a business</h1>
-			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className="create-business-form">
+			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className={styles.createBusinessForm}>
 				<div className="form-group mb-3">
 					<label htmlFor="name-input" className="form-label">
 						Business Name<span>* </span>
