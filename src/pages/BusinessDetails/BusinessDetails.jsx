@@ -61,12 +61,10 @@ const BusinessDetails = (props) => {
           Edit
         </button>
         </Link>
-        {/* <span className={styles.deleteBtn}> */}
 
         <button className="btn btn-sm btn-danger m-left delete-btn" onClick={()=>props.handleDeleteBusiness(business._id)}>
           Delete
         </button>
-        {/* </span> */}
         </div>
         </>
         :
@@ -136,13 +134,14 @@ const BusinessDetails = (props) => {
           <h4>{review.name}</h4>
           <h4>{review.rating}</h4>
           <h4>{review.review}</h4>
-          {/* <h6>{review.author}</h6> */}
+          <div className={styles.deleteReviewBtn} >
           <button
-              className={styles.deleteReviewBtn}
+              className='btn btn-secondary'
               onClick={()=> props.handleDeleteReview(review._id, business._id)}
               >
               Delete
             </button>
+          </div>
         </div>
       )}
       

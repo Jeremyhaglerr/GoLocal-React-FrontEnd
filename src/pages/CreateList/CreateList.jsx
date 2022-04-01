@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react"
-import * as profileService from '../../services/profileService'
 import { useNavigate } from 'react-router-dom'
 import styles from './CreateList.module.css'
 
