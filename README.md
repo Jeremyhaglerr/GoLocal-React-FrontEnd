@@ -8,14 +8,24 @@ ____
  [Trello ](https://trello.com/b/kUVaWrve/unit-3)
 
 ### Screen Shots
-![LandingPage][screenshot1] 
+![Reviews][landing] 
+
+[landing]: /public/images/landing.jpg "Landing Page"
+
+![Details][details] 
 
 
-[screenshot1]: /public/images/ScreenShot1.png "Landing Page"
+[details]: /public/images/details.jpg "Details"
 
-![Reviews][screenshot2] 
 
-[screenshot2]: /public/images/ScreenShot2.png "Landing Page"
+![Owned][Owned] 
+
+[Owned]: /public/images/owned-biz.jpg "Owned Business"
+
+![Profiles][profiles] 
+
+[profiles]: /public/images/profile.jpg "Profiles Page"
+
 
 ---
 ### Technologies Used
