@@ -42,7 +42,6 @@ const BusinessDetails = (props) => {
 
     return (
       <>
-      
       <div className={styles.businessInfo}>
       <img alt={business.name} src={business.photo} className={styles.businessPic}/>
       <h3><strong>{business.name}</strong></h3>
@@ -53,7 +52,6 @@ const BusinessDetails = (props) => {
       <h3> Added by: {business.owner.name}</h3>
       {business.owner._id===props.user.profile ? 
       <>
-
         <Link to='/editBusiness' state={{business}} className={styles.editBtn}>
         <button className="btn btn-sm btn-outline-dark m-left" >
           📝
@@ -66,6 +64,8 @@ const BusinessDetails = (props) => {
         :
         <></>
       }
+      </div>
+      <div className={styles.reviewFormDiv}>
       <form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className={styles.reviewForm}>
       <div className="form-group mb-3">
         <label htmlFor="name-input" className="form-label">
@@ -120,13 +120,11 @@ const BusinessDetails = (props) => {
       </div>
     </form>
           </div>
-
       {business.reviews.length ?
       <>
         <div className={styles.businessInfo}>
       {business.reviews.map(review =>
-        <div className={styles.review} key={review._id}  >
-          <table></table>
+        <div className={styles.review} key={review._id}>
           <h4 className={styles.reviewsTitle}><strong>Reviews:</strong></h4>
           <h4>Title: {review.name}</h4>
           <h4>Rating: {review.rating}</h4>
@@ -142,12 +140,10 @@ const BusinessDetails = (props) => {
         </div>
       )}
       </div>
-      
       </>
       :
       <p></p>
     }
-
     </>
   )
     }

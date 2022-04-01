@@ -29,9 +29,8 @@
   padding: 10px 10px 10px 20px;
   border: 0.2mm solid; 
   border-radius: 1%;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   font-family: 'Poppins', sans-serif;
-  flex-direction: column;
 }
 .review {
   margin: 10px auto;
@@ -45,5 +44,6 @@
   width: fit-content;
   margin: 0 auto;
 }
+
 
 
