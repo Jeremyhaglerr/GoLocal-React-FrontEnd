@@ -42,12 +42,15 @@ const ProfileDetails = (props) => {
           <div className={styles.container} >
           <h4 className={styles.title} >Your Businesses</h4>
           {ownedBusinesses.map(business => (
-            <div  key={business._id} className={styles.card}>
-              <BusinessCard
-                business={business}
-                user={props.user}
+            <div key={business._id} className={styles.container} >
+            <div className={styles.bizCard}>  
+              <div className={styles.card} >
+                <BusinessCard key={business._id} business={business}
+                  user={props.user}
               />
+              </div>
             </div>
+          </div>
 
           ))}
           </div>

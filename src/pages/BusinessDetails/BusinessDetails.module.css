@@ -1,63 +1,19 @@
 .businessInfo {
   float: left;
   text-align: center;
-  /* margin: auto; */
-  margin-top: 20px;
-  margin-bottom:20px;
   background-color: white;
-  width: 30%;
+  width: 80%;
   padding: 10px;
   border: 0.05mm solid;
-  border-radius: 3%;
+  border-radius: 15px;
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
-  display: grid;
-  /* grid-template-rows: auto;
-  grid-template-columns: auto; */
-}
-
-h4 {
-  float: left;
-  margin-top: 100px;
-  background-color: white;
-  width: 18%;
-  padding: 10px;
-  border: 0.2mm solid;
-  border-radius: 2%;
-  font-size: 18px;
-  text-align: center;
-  margin: auto;
-  margin-bottom: 3px;
-  margin-top: 3px;
-  font-family: 'Poppins', sans-serif;
-  position: flex;
-}
-
-h7 {
-  float: left;
-  text-align: center;
-  /* margin: auto; */
-  background-color: white;
-  width: 20%;
-  padding: 10px;
-  border: 0.3mm solid;
-  border-radius: 1%;
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  font-family: 'Poppins', sans-serif;
-  position: absolute;
+  margin: 20px 10%;
 }
 
 .businessPic {
-  position: grid;
-  float: left;
-  max-width: 25%;
-  /* max-height: 15%; */
-  max-height: 275px;
-  width: 500px;
-  margin: 50px 56px 0px 100px;
+  max-height: 500px;
+  max-width: 60%;
   text-align: center;
   background-color: #fafafa;
   border: 0.5mm ridge;
@@ -65,24 +21,11 @@ h7 {
   border-radius: 5%;
 }
 
-body {
-background: hsla(180, 100%, 97%, 1);
-
-background: linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
-
-background: -moz-linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
-
-background: -webkit-linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
-
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F1FFFF", endColorstr="#F3F9FA", GradientType=1 );
-background-size: cover;
-}
-
-form { 
+.form { 
   text-align: center;
   background-color: white;
   width: 25%;
-  margin: auto; 
+  margin: 0 45%; 
   padding: 10px 10px 10px 20px;
   border: 0.2mm solid; 
   border-radius: 1%;
@@ -90,60 +33,17 @@ form {
   font-family: 'Poppins', sans-serif;
   flex-direction: column;
 }
-
-.editBtn {
-  position: absolute;
-  padding: 0px;
-  margin: 370px 0px 0px 780px;
-  /* margin-bottom: 20px; */
-  display: flex;
-  
-}
-.deleteBtn {
-  position: absolute;
-  padding: 0px;
-  margin: 370px 0px 0px 680px;
-  /* margin-bottom: 20px; */
-  display: flex;
-  
+.review {
+  margin: 10px auto;
+  border: 0.05mm solid;
+  border-radius: 15px;
+  background-color: rgb(242, 242, 242);
 }
 
-.reviewsTitle {
-  float: right;
-  margin-top: 35px;
-  border: 0.3mm solid;
-  width: 15%;
-  /* position: sticky; */
-
-  
+.Btn{
+  background-color: white;
+  width: fit-content;
+  margin: 0 auto;
 }
 
-.reviewForm {
-  float: right;
-  /* margin: 0px; */
-  /* padding: 0px 10px 10px 10px; */
-  margin: auto;
-  position: flex;
-  margin-bottom:0px;
-  margin-top: 50px;
-  margin-right: 70px;
-  
-  
-  
-}
 
-/* h6 {
-  position: absolute;
-} */
-
-.reviewList {
-  display: grid;
-  width: 100%;
-}
-
-.deleteReviewBtn {
-  margin: auto;
-  width: 15%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
