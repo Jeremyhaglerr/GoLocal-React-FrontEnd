@@ -3,7 +3,7 @@
 ### *Create, Rate, and Review Local Businesses*
 ____
 ## Getting Started
- [GoLocal](https://www.google.com)
+ [GoLocal](https://golocal-jle.herokuapp.com/)
  
  [Trello ](https://trello.com/b/kUVaWrve/unit-3)
 
