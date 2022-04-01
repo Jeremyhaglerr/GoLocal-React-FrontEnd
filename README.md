@@ -1,6 +1,8 @@
 # GoLocal 
 
 ### *Create, Rate, and Review Local Businesses*
+---
+### GoLocal lets you track and share small businesses across the world to share with friends and make curated lists of business to save for later. One of the majopr issues facing small businesses is that people just dont know they exist because of larger marketing campaigns and brand recognition of larger brands. We created GoLocal to help alleviate that issue and build a community of users across the globe sharing their favorite spots.
 ____
 ## Getting Started
  [GoLocal](https://golocal-jle.herokuapp.com/)
