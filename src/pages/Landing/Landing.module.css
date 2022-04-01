@@ -8,11 +8,7 @@
 }
 
 .bizCard {
-  width: 60%;
-  /* display: grid;
-  grid-template-rows: repeat(minmax(170px, 1fr));
-	grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 30px; */
+  width: 80%;
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
 }
@@ -45,4 +41,12 @@ main {
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F1FFFF", endColorstr="#F3F9FA", GradientType=1 );
     background-size: cover;
     
+}
+
+@media screen and (min-width: 600px) {
+  .bizCard {
+    width: 40%;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+  }
 }
