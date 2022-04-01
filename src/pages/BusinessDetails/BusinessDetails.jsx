@@ -130,12 +130,17 @@ const BusinessDetails = (props) => {
           <h4>Rating: {review.rating}</h4>
           <h4>Review: {review.review}</h4>
           <div className={styles.Btn} >
-          <button
-              className='btn btn-outline-dark'
-              onClick={()=> props.handleDeleteReview(review._id, business._id)}
-              >
-              Delete
-            </button>
+            {review.author === props.user.profile ?
+            <button
+            className='btn btn-outline-dark'
+            onClick={()=> props.handleDeleteReview(review._id, business._id)}
+            >
+            Delete
+          </button>
+            : 
+            <></>
+            }
+          
           </div>
         </div>
       )}
