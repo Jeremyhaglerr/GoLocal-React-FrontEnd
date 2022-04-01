@@ -36,7 +36,6 @@ const BusinessDetails = (props) => {
         reviewFormData.append('rating', formData.rating)
         reviewFormData.append('review', formData.review)
         reviewFormData.append('author', props.user.profile)
-        console.log(reviewFormData);
         props.handleAddReview(reviewFormData, business._id)
       }
 

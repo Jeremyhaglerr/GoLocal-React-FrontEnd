@@ -4,7 +4,6 @@ const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/business`
 
 
 function create(business) {
-  console.log(business)
   return fetch(BASE_URL, { 
     method: 'POST',
     headers: {
@@ -53,7 +52,6 @@ function getBusinessDetails(id) {
 }
 
 function createReview(review, business) {
-  console.log(review)
   return fetch(`${BASE_URL}/${business}/reviews`, { 
     method: 'POST',
     headers: {

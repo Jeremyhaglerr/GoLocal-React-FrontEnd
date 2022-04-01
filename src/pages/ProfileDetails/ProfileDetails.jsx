@@ -7,7 +7,6 @@ import styles from './ProfileDetails.module.css'
 
 const ProfileDetails = (props) => {
   const [profile, setProfile] = useState()
-  console.log(profile);
   const ownedBusinesses = props.businesses.filter(business => business.owner._id === profile?._id)
   
 

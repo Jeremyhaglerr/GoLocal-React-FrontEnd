@@ -28,7 +28,6 @@ function createList(id, list) {
 }
 
 function deleteList(id, list) {
-  console.log(list);
   return fetch(`${BASE_URL}/${id}/${list}`, {
     method: 'DELETE',
     headers: {

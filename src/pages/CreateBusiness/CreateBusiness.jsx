@@ -28,7 +28,6 @@ function CreateBusiness (props) {
     businessFormData.append('phoneNum', formData.phoneNum)
     businessFormData.append('hours', formData.hours)
     businessFormData.append('coupon', formData.coupon)
-    console.log(businessFormData);
     props.handleAddBusiness(businessFormData)
   }
 

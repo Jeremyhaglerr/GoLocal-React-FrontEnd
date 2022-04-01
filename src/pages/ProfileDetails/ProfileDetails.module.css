@@ -48,10 +48,6 @@
 
 .bizCard {
   width: 80%;
-  /* display: grid;
-  grid-template-rows: repeat(minmax(170px, 1fr));
-	grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 30px; */
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
 }
@@ -60,3 +56,10 @@
   margin: 15px auto;
 }
 
+@media screen and (min-width: 600px) {
+  .bizCard {
+    width: 40%;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+  }
+}

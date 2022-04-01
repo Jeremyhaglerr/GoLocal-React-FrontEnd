@@ -27,7 +27,6 @@ function EditBusiness (props) {
     businessFormData.append('hours', formData.hours)
     businessFormData.append('coupon', formData.coupon)
     businessFormData.append('_id', formData._id)
-    console.log(businessFormData);
     props.handleEditBusiness(businessFormData)
   }
 
