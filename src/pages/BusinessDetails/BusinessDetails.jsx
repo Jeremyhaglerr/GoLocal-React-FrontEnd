@@ -43,6 +43,7 @@ const BusinessDetails = (props) => {
       <>
       
       <img alt={business.name} src={business.photo} className={styles.businessPic}/>
+      <div className={styles.bizContainer}>
       <div className={styles.businessInfo}>
       <h3><strong>{business.name}</strong></h3>
       <h3> 📍 {business.address}</h3>
@@ -53,19 +54,26 @@ const BusinessDetails = (props) => {
       </div>
       {business.owner._id===props.user.profile ? 
       <>
-        <Link to='/editBusiness' state={{business}} className={styles.editBtn}>
-        <button className="btn btn-sm btn-danger m-left" >
+        <div className={styles.buttonContainer}>
+        <Link to='/editBusiness' state={{business}} >
+        <button className="btn btn-sm btn-danger m-left edit-btn" >
           Edit
         </button>
         </Link>
-        <span className={styles.deleteBtn}>
-        <button className="btn btn-sm btn-danger m-left" onClick={()=>props.handleDeleteBusiness(business._id)}>
+        {/* <span className={styles.deleteBtn}> */}
+
+        <button className="btn btn-sm btn-danger m-left delete-btn" onClick={()=>props.handleDeleteBusiness(business._id)}>
           Delete
-        </button></span>
+        </button>
+        {/* </span> */}
+        </div>
         </>
         :
           <></>
+          
       }
+      </div>
+      <div className={styles.reviewFormDiv}>
       <form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className={styles.reviewForm}>
       <div className="form-group mb-3">
         <label htmlFor="name-input" className="form-label">
@@ -118,12 +126,11 @@ const BusinessDetails = (props) => {
         </button>
       </div>
     </form>
-
+    </div>
       {business.reviews.length ?
       <>
       {business.reviews.map(review =>
         <div key={review.name} className={styles.reviewList}>
-          <table></table>
           <h4 className={styles.reviewsTitle}><strong>Reviews:</strong></h4>
           <h4>{review.name}</h4>
           <h4>{review.rating}</h4>
