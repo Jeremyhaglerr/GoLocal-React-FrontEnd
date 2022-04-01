@@ -6,7 +6,7 @@ const Landing = (props) => {
     <div className={styles.container} >
       <h1>All Businesses</h1>
       <div className={styles.bizCard}> {props.businesses?.map (business => ( 
-        <div className={styles.card} >
+        <div key={business.id} className={styles.card} >
           <BusinessCard key={business._id} business={business}
            user={props.user}
            />
