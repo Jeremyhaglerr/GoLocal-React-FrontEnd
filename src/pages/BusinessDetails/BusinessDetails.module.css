@@ -1,52 +1,19 @@
-.bizContainer {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  min-width: 40%;
-  border: 0.05mm solid;
-  border-radius: 3%;
-  padding: 10px;
-  font-size: 18px;
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
-  background-color: white;
-  margin-top: 30px;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-bottom: 30px;
-}
-
 .businessInfo {
+  float: left;
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-
-
-h4 {
-  margin-top: 100px;
   background-color: white;
-  width: 18%;
+  width: 80%;
   padding: 10px;
-  border: 0.2mm solid;
-  border-radius: 2%;
+  border: 0.05mm solid;
+  border-radius: 15px;
   font-size: 18px;
-  text-align: center;
-  margin: auto;
-  margin-bottom: 3px;
-  margin-top: 3px;
   font-family: 'Poppins', sans-serif;
-  position: flex;
+  margin: 20px 10%;
 }
-
 
 .businessPic {
-  position: flex;
-  float: left;
-  max-width: 25%;
-  max-height: 275px;
-  width: 500px;
-  margin: 50px 150px 0px 200px;
+  max-height: 500px;
+  max-width: 60%;
   text-align: center;
   background-color: #fafafa;
   border: 0.5mm ridge;
@@ -54,65 +21,29 @@ h4 {
   border-radius: 5%;
 }
 
-body {
-background: hsla(180, 100%, 97%, 1);
-
-background: linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
-
-background: -moz-linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
-
-background: -webkit-linear-gradient(135deg, hsla(180, 100%, 97%, 1) 10%, hsla(189, 41%, 97%, 1) 50%, hsla(213, 100%, 96%, 1) 100%);
-
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F1FFFF", endColorstr="#F3F9FA", GradientType=1 );
-background-size: cover;
-}
-
-form { 
+.form { 
   text-align: center;
   background-color: white;
   width: 25%;
-  margin: auto; 
+  margin: 0 45%; 
   padding: 10px 10px 10px 20px;
   border: 0.2mm solid; 
   border-radius: 1%;
   margin-bottom: 30px;
   font-family: 'Poppins', sans-serif;
 }
-
-
-.buttonContainer {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.edit-btn {
-  display: flex;
-  justify-self: space-between;
-}
-
-.delete-btn {
-  display: flex;
-  justify-self: space-between;
-}
-
-
-.reviewsTitle {
-  float: left;
-  border: 0.3mm solid;
-  width: 15%;
-}
-
-.reviewList {
-  display: grid;
-  width: 100%;
-  float: left;
-  margin: relative;
-  grid-template-columns: auto;
-  margin-top: auto;
-  margin-left: auto;;
-}
-
-.deleteReviewBtn {
+.review {
   margin: 10px auto;
-  width: fit-content;
+  border: 0.05mm solid;
+  border-radius: 15px;
+  background-color: rgb(242, 242, 242);
 }
+
+.Btn{
+  background-color: white;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+
+

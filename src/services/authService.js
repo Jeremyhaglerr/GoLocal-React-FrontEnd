@@ -51,9 +51,9 @@ async function changePassword(credentials) {
   try {
     const res = await fetch(`${BASE_URL}/changePassword`, {
       method: 'POST',
-      headers: new Headers({ 
-        'Content-Type': 'application/json', 
-        Authorization: `Bearer ${tokenService.getToken()}` 
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${tokenService.getToken()}`
       }),
       body: JSON.stringify(credentials),
     })
@@ -65,7 +65,7 @@ async function changePassword(credentials) {
     if (json.err) {
       throw new Error(json.err)
     }
-  } catch(err) {
+  } catch (err) {
     throw err
   }
 }

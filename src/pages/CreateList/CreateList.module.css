@@ -9,6 +9,13 @@
 }
 
 .createListForm {
-  margin-top: 20px;
-  padding: 15px;
+  text-align: center;
+  background-color: white;
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px 20px 10px 20px;
+  border: 0.2mm solid;
+  border-radius: 0%;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 1%;
 }

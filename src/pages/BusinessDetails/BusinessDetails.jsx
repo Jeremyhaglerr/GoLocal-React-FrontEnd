@@ -42,34 +42,27 @@ const BusinessDetails = (props) => {
 
     return (
       <>
-      
-      <img alt={business.name} src={business.photo} className={styles.businessPic}/>
-      <div className={styles.bizContainer}>
       <div className={styles.businessInfo}>
+      <img alt={business.name} src={business.photo} className={styles.businessPic}/>
       <h3><strong>{business.name}</strong></h3>
       <h3> 📍 {business.address}</h3>
       <h3> 🔗 {business.url}</h3>
       <h3> 📞 {business.phoneNum}</h3>
       <h3> 📅 {business.hours}</h3>
       <h3> Added by: {business.owner.name}</h3>
-      </div>
       {business.owner._id===props.user.profile ? 
       <>
-        <div className={styles.buttonContainer}>
-        <Link to='/editBusiness' state={{business}} >
-        <button className="btn btn-sm btn-danger m-left edit-btn" >
-          Edit
+        <Link to='/editBusiness' state={{business}} className={styles.editBtn}>
+        <button className="btn btn-sm btn-outline-dark m-left" >
+          📝
         </button>
         </Link>
-
-        <button className="btn btn-sm btn-danger m-left delete-btn" onClick={()=>props.handleDeleteBusiness(business._id)}>
-          Delete
+        <button className="btn btn-sm btn-outline-dark m-left" onClick={()=>props.handleDeleteBusiness(business._id)}>
+          ❌
         </button>
-        </div>
         </>
         :
-          <></>
-          
+        <></>
       }
       </div>
       <div className={styles.reviewFormDiv}>
@@ -86,7 +79,7 @@ const BusinessDetails = (props) => {
           value={formData.name}
           onChange={handleChange}
           required
-        />
+          />
       </div>
       <div className="form-group mb-3">
         <label htmlFor="rating-input" className="form-label">
@@ -99,8 +92,9 @@ const BusinessDetails = (props) => {
           name="rating"
           value={formData.rating}
           onChange={handleChange}
+          placeholder='please rate 1 to 5'
           required
-        />
+          />
       </div>
       <div className="form-group mb-4">
         <label htmlFor="review-input" className="form-label">
@@ -113,30 +107,31 @@ const BusinessDetails = (props) => {
           name="review"
           value={formData.review}
           onChange={handleChange}
-        />
+          />
       </div>
       <div className={styles.deleteReview}>
         <button
           type="submit"
           className={"btn btn-primary btn-fluid"}
           disabled={!validForm}
-        >
+          >
           Add Review
         </button>
       </div>
     </form>
-    </div>
+          </div>
       {business.reviews.length ?
       <>
+        <div className={styles.businessInfo}>
       {business.reviews.map(review =>
-        <div key={review._id} className={styles.reviewList}>
+        <div className={styles.review} key={review._id}>
           <h4 className={styles.reviewsTitle}><strong>Reviews:</strong></h4>
-          <h4>{review.name}</h4>
-          <h4>{review.rating}</h4>
-          <h4>{review.review}</h4>
-          <div className={styles.deleteReviewBtn} >
+          <h4>Title: {review.name}</h4>
+          <h4>Rating: {review.rating}</h4>
+          <h4>Review: {review.review}</h4>
+          <div className={styles.Btn} >
           <button
-              className='btn btn-secondary'
+              className='btn btn-outline-dark'
               onClick={()=> props.handleDeleteReview(review._id, business._id)}
               >
               Delete
@@ -144,12 +139,11 @@ const BusinessDetails = (props) => {
           </div>
         </div>
       )}
-      
+      </div>
       </>
       :
       <p></p>
     }
-
     </>
   )
     }

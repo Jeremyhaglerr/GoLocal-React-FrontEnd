@@ -52,7 +52,7 @@ const ListDetails = (props) => {
     <>
       <div className={styles.header} >
         <h1 className={styles.listName}>{currentList.name}</h1>
-        <h4 className={styles.title} >{currentList.description}</h4>
+        <h4 className={styles.listName} >{currentList.description}</h4>
       </div>
       <form className={styles.form} autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
         <div className="form-group mb-3">
@@ -75,14 +75,17 @@ const ListDetails = (props) => {
         </div>
       </form>
       {currentList.businesses.length ? 
-      <div className={styles.businessList} >
+      <div>
       {currentList.businesses.map(business => (
-        <div className={styles.card} key={business._id}>
-          <BusinessCard business={business} user={props.user} />
-          <div className={styles.button} >
-            <button type='submit' className="btn btn-outline-secondary" onClick={() => props.handleRemoveFromList(props.user.profile, currentList, business)} >Remove From List</button>
+        <div className={styles.container} >
+        <div className={styles.bizCard}>
+          <div className={styles.card} >
+            <BusinessCard key={business._id} business={business}
+              user={props.user}
+             />
           </div>
         </div>
+      </div>
       ))}
       </div>
       :
