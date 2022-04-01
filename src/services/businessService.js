@@ -64,9 +64,8 @@ function createReview(review, business) {
   .then(res => res.json())
 }
 
-function deleteReview(review, id) {
-  console.log(review);
-  return fetch(`${BASE_URL}/${id}/${review}`, {
+function deleteReview(reviewId, businessId) {
+  return fetch(`${BASE_URL}/${businessId}/${reviewId}`, {
     method: 'DELETE',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,

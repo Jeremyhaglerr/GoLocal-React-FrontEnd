@@ -1,4 +1,3 @@
-import userEvent from '@testing-library/user-event';
 import { useState, useRef, useEffect } from "react"
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom'
@@ -6,23 +5,25 @@ import * as businessService from "../../services/businessService"
 import styles from './BusinessDetails.module.css'
 
 const BusinessDetails = (props) => {
-    // const [businessDetails, setBusinessDetails] = useState([])
     const location = useLocation()
-    const business = location.state?.business
-    console.log(business);
-
-    // function CreateReview (props) {
+    const [business, setBusiness] = useState(location.state.business)
       const formElement = useRef()
       const [validForm, setValidForm] = useState(false)
       const [formData, setFormData] = useState({
         name: '',
         rating: '',
         review: '',
+        author: '',
       })
 
       useEffect(()=> {
         formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
       }, [formData])
+
+      useEffect (()=> {
+        businessService.getBusinessDetails(business._id)
+        .then(updatedBusiness => setBusiness(updatedBusiness))
+      },[])
     
       const handleChange = evt => {
         setFormData({...formData, [evt.target.name]: evt.target.value})
@@ -34,7 +35,7 @@ const BusinessDetails = (props) => {
         reviewFormData.append('name', formData.name)
         reviewFormData.append('rating', formData.rating)
         reviewFormData.append('review', formData.review)
-        // reviewFormData.append('author', formData.author)
+        reviewFormData.append('author', props.user.profile)
         console.log(reviewFormData);
         props.handleAddReview(reviewFormData, business._id)
       }
@@ -77,7 +78,7 @@ const BusinessDetails = (props) => {
       <form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className={styles.reviewForm}>
       <div className="form-group mb-3">
         <label htmlFor="name-input" className="form-label">
-          Name<span>*</span>
+          Title<span>*</span>
         </label>
         <input 
           type="text"
@@ -130,7 +131,7 @@ const BusinessDetails = (props) => {
       {business.reviews.length ?
       <>
       {business.reviews.map(review =>
-        <div key={review.name} className={styles.reviewList}>
+        <div key={review._id} className={styles.reviewList}>
           <h4 className={styles.reviewsTitle}><strong>Reviews:</strong></h4>
           <h4>{review.name}</h4>
           <h4>{review.rating}</h4>
@@ -138,7 +139,7 @@ const BusinessDetails = (props) => {
           {/* <h6>{review.author}</h6> */}
           <button
               className={styles.deleteReviewBtn}
-              onClick={()=> businessService.deleteReview(review._id, business._id)}
+              onClick={()=> props.handleDeleteReview(review._id, business._id)}
               >
               Delete
             </button>
